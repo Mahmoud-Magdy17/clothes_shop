@@ -1,4 +1,4 @@
-# clothes_shop_app
+# flutter_temp
 
 A new Flutter project.
 

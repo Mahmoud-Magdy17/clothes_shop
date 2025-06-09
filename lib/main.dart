@@ -1,4 +1,3 @@
-import 'package:clothes_shop_app/core/api/api_keys.dart';
 import 'package:clothes_shop_app/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
