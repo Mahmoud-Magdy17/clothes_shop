@@ -1,4 +1,6 @@
 import 'package:clothes_shop_app/features/splash/presentation/view/splash_view.dart';
+import 'package:clothes_shop_app/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,7 +20,7 @@ Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper().init();
-
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   Bloc.observer = CustomBlocObserver();
   setupGetIt();
 
@@ -39,11 +41,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          scaffoldBackgroundColor: kVeryLightGreyColor,
-          appBarTheme: const AppBarTheme(
-            backgroundColor: kVeryLightGreyColor,
-            surfaceTintColor: kGreyColor,
-          )),
+        scaffoldBackgroundColor: kVeryLightGreyColor,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: kVeryLightGreyColor,
+          surfaceTintColor: kGreyColor,
+        ),
+      ),
       home: const SplashView(),
     );
   }
