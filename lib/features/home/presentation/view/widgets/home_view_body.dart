@@ -38,30 +38,31 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       child: SafeArea(
         child: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return <Widget>[
-              const CustomSliverAppBar(),
-            ];
+            return <Widget>[const CustomSliverAppBar()];
           },
           body: Scaffold(
             body: Column(
               children: [
                 Container(
-                  padding:
-                      const EdgeInsets.only(bottom: 16, right: 16, left: 16),
+                  padding: const EdgeInsets.only(
+                    bottom: 16,
+                    right: 16,
+                    left: 16,
+                    top: 8,
+                  ),
                   decoration: const BoxDecoration(
-                      color: kFontColor,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(24),
-                        bottomRight: Radius.circular(24),
-                      )),
+                    color: kFontColor,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(24),
+                      bottomRight: Radius.circular(24),
+                    ),
+                  ),
                   child: InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
                         AppRouter.router(
-                          const RouteSettings(
-                            name: AppRouter.kSearchView,
-                          ),
+                          const RouteSettings(name: AppRouter.kSearchView),
                         ),
                       );
                     },
@@ -76,17 +77,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                     child: Column(
                       children: [
                         OffersSectionBlocBuilder(),
-                        SizedBox(
-                          height: 8,
-                        ),
+                        SizedBox(height: 8),
                         CategoriesSectionBlocBuilder(),
-                        SizedBox(
-                          height: 8,
-                        ),
+                        SizedBox(height: 8),
                         NewArrivalSectionBlocConsumer(),
-                        SizedBox(
-                          height: 16,
-                        ),
+                        SizedBox(height: 16),
                       ],
                     ),
                   ),
