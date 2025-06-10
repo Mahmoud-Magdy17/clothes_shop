@@ -1,3 +1,5 @@
+import 'package:clothes_shop_app/core/services/local_notification_service.dart';
+import 'package:clothes_shop_app/core/services/push_notification_service.dart';
 import 'package:clothes_shop_app/features/splash/presentation/view/splash_view.dart';
 import 'package:clothes_shop_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,8 +24,12 @@ Future<void> main() async {
   await CacheHelper().init();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   Bloc.observer = CustomBlocObserver();
-  setupGetIt();
 
+  setupGetIt();
+  await Future.wait([
+    PushNotificationService.init(),
+    LocalNotificationService.init(),
+  ]);
   runApp(const MyApp());
 }
 
