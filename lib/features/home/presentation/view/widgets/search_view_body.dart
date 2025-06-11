@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:clothes_shop_app/core/widgets/custom_search.dart';
 import 'package:clothes_shop_app/features/home/domain/entities/product_entity.dart';
 import 'package:clothes_shop_app/features/home/presentation/view/widgets/search_lest_item.dart';
@@ -8,9 +10,7 @@ import '../../../../../core/function_help/get_dummy_product.dart';
 import '../../manage/cubits/product_cubit/product_cubit.dart';
 
 class SearchViewBody extends StatefulWidget {
-  const SearchViewBody({
-    super.key,
-  });
+  const SearchViewBody({super.key});
 
   @override
   State<SearchViewBody> createState() => _SearchViewBodyState();
@@ -39,14 +39,14 @@ class _SearchViewBodyState extends State<SearchViewBody> {
                 children: [
                   CustomSearch(
                     onChanged: (text) {
+                      log(text);
                       List<ProductEntity> searchProduct = state.productsList;
                       answerdList.clear();
                       searchText = text;
                       for (var i = 0; i < searchProduct.length; i++) {
-                        if (searchProduct[i]
-                            .name
-                            .toLowerCase()
-                            .contains(text.toLowerCase())) {
+                        if (searchProduct[i].name.toLowerCase().contains(
+                          text.toLowerCase(),
+                        )) {
                           answerdList.add(searchProduct[i]);
                         }
                       }
@@ -55,30 +55,24 @@ class _SearchViewBodyState extends State<SearchViewBody> {
                   ),
                   searchText.isNotEmpty && answerdList.isEmpty
                       ? const Padding(
-                          padding: EdgeInsets.only(top: 42.0),
-                          child: Center(
-                            child: Text(
-                              'No results . \n search about product.',
-                              textAlign: TextAlign.center,
-                            ),
+                        padding: EdgeInsets.only(top: 42.0),
+                        child: Center(
+                          child: Text(
+                            'No results . \n search about product.',
+                            textAlign: TextAlign.center,
                           ),
-                        )
-                      : SearchListItem(
-                          products: answerdList,
                         ),
+                      )
+                      : SearchListItem(products: answerdList),
                 ],
               );
             } else if (state is ProductFailure) {
               return const Center(
-                child: Text(
-                  "Oops something went wrong, please try later",
-                ),
+                child: Text("Oops something went wrong, please try later"),
               );
             } else {
               return Skeletonizer(
-                child: SearchListItem(
-                  products: getDummyProducts(),
-                ),
+                child: SearchListItem(products: getDummyProducts()),
               );
             }
           },
@@ -86,4 +80,6 @@ class _SearchViewBodyState extends State<SearchViewBody> {
       ),
     );
   }
+
+  searchWordsItems() {}
 }

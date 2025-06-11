@@ -53,6 +53,8 @@ dependencies:
   firebase_core: ^3.14.0
   firebase_messaging: ^15.2.7
   flutter_local_notifications: ^19.2.1
+  image_picker: ^1.1.2
+  tflite_flutter: ^0.11.0
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +86,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/ai_models/dress_trousers_bag_model.tflite
+    - assets/ai_models/model_STSH.tflite
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
