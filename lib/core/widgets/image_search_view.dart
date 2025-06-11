@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:clothes_shop_app/constants.dart';
 import 'package:clothes_shop_app/generated/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +26,7 @@ class ImageSearchView extends StatelessWidget {
       create: (_) => SearchCubit(),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: kGreyColor,
           foregroundColor: Colors.white,
           title: const Text('Search by Image'),
           actions: [
