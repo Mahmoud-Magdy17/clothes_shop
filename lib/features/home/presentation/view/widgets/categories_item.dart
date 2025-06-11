@@ -4,11 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class CategoriesItem extends StatelessWidget {
-  const CategoriesItem({
-    super.key,
-    required this.title,
-    required this.image,
-  });
+  const CategoriesItem({super.key, required this.title, required this.image});
 
   final String title;
   final String image;
@@ -22,27 +18,22 @@ class CategoriesItem extends StatelessWidget {
           backgroundColor: Colors.grey.shade200,
           child: CachedNetworkImage(
             imageUrl: image,
-            placeholder: (context, url) => const Skeletonizer(
-              child: SizedBox(),
-            ),
-            imageBuilder: (context, imageProvider) => Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                image: DecorationImage(
-                  image: imageProvider,
-                  fit: BoxFit.cover,
+            placeholder:
+                (context, url) => const Skeletonizer(child: SizedBox()),
+            imageBuilder:
+                (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    image: DecorationImage(
+                      image: imageProvider,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            errorWidget: (context, url, error) => const Icon(
-              Icons.error,
-            ),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ),
-        Text(
-          title,
-          style: Styles.caption1Regular,
-        ),
+        Text(title, style: Styles.caption1Regular),
       ],
     );
   }

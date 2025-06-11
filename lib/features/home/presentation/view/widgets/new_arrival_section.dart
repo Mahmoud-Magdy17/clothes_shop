@@ -5,10 +5,7 @@ import 'package:clothes_shop_app/features/home/domain/entities/product_entity.da
 import 'package:flutter/material.dart';
 
 class NewArrivalSection extends StatelessWidget {
-  const NewArrivalSection({
-    super.key,
-    required this.products,
-  });
+  const NewArrivalSection({super.key, required this.products});
 
   final List<ProductEntity> products;
 
@@ -35,9 +32,7 @@ class NewArrivalSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 12,
-          ),
+          const SizedBox(height: 12),
           GridView.count(
             padding: EdgeInsets.zero,
             crossAxisCount: 2,
@@ -46,19 +41,16 @@ class NewArrivalSection extends StatelessWidget {
             mainAxisSpacing: 12,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            children: List.generate(
-              products.length,
-              (index) {
-                return CustomCard(
-                  title: products[index].name,
-                  subTitle: products[index].subCategory,
-                  price: products[index].price.toString(),
-                  image: products[index].imagePath,
-                  id: products[index].id as int,
-                  materials: products[index].material,
-                );
-              },
-            ),
+            children: List.generate(products.length, (index) {
+              return CustomCard(
+                title: products[index].name,
+                subTitle: products[index].subCategory,
+                price: products[index].price.toString(),
+                image: products[index].imagePath,
+                id: products[index].id as int,
+                materials: products[index].material,
+              );
+            }),
           ),
         ],
       ),

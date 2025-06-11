@@ -11,10 +11,11 @@ void customError(BuildContext context, {required String massage}) {
     title: "Error",
     desc: massage,
     btnOk: CustomButton(
-        title: "Ok",
-        onPressed: () {
-          Navigator.pop(context);
-        }),
+      title: "Ok",
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    ),
   ).show();
 }
 
@@ -26,9 +27,10 @@ void customSuccess(BuildContext context, {required String massage}) {
     title: "Success",
     desc: massage,
     btnOk: CustomButton(
-        title: "Ok",
-        onPressed: () {
-          Navigator.pop(context);
-        }),
+      title: "Ok",
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    ),
   ).show();
 }

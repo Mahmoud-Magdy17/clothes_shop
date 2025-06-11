@@ -17,9 +17,7 @@ import '../function_help/get_it.dart';
 import '../utils/styles.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({
-    super.key,
-  });
+  const CustomBottomNavigationBar({super.key});
 
   @override
   State<CustomBottomNavigationBar> createState() =>
@@ -32,80 +30,85 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: kFontColor,
-            selectedLabelStyle: Styles.caption1Regular,
-            selectedItemColor: kWhiteColor,
-            unselectedItemColor: kGreyColor,
-            currentIndex: _selectedIndex,
-            onTap: (int index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-            items: [
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  _selectedIndex != 0
-                      ? Assets.imagesHomeIcon1
-                      : Assets.imagesHomeIcon2,
-                ),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  _selectedIndex != 1
-                      ? Assets.imagesCategoriesIcon1
-                      : Assets.imagesCategoriesIcon2,
-                ),
-                label: 'Categories',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  _selectedIndex != 2
-                      ? Assets.imagesCartIcon1
-                      : Assets.imagesCartIcon2,
-                ),
-                label: 'My Cart',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  _selectedIndex != 3
-                      ? Assets.imagesAccountIcon1
-                      : Assets.imagesAccountIcon2,
-                ),
-                label: 'Account',
-              ),
-            ]),
-        body: <Widget>[
-          MultiBlocProvider(providers: [
-            BlocProvider(
-                create: (context) => ProductCubit(
-                      getIt.get<HomeRepo>(),
-                    )),
-            BlocProvider(
-                create: (context) => OfferCubit(
-                      homeRepo: getIt.get<HomeRepo>(),
-                    )),
-            BlocProvider(
-                create: (context) => CategoryCubit(
-                      homeRepo: getIt.get<HomeRepo>(),
-                    )),
-          ], child: const HomeView()),
-          BlocProvider(
-            create: (context) => CategoryCubit(
-              homeRepo: getIt.get<HomeRepo>(),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: kFontColor,
+        selectedLabelStyle: Styles.caption1Regular,
+        selectedItemColor: kWhiteColor,
+        unselectedItemColor: kGreyColor,
+        currentIndex: _selectedIndex,
+        onTap: (int index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              _selectedIndex != 0
+                  ? Assets.imagesHomeIcon1
+                  : Assets.imagesHomeIcon2,
             ),
-            child: const CategoriesView(),
+            label: 'Home',
           ),
-          const MyCartView(),
-          BlocProvider(
-            create: (context) => ProfileCubit(
-              profileRepo: getIt.get<ProfileRepo>(),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              _selectedIndex != 1
+                  ? Assets.imagesCategoriesIcon1
+                  : Assets.imagesCategoriesIcon2,
             ),
-            child: const AccountView(),
+            label: 'Categories',
           ),
-        ][_selectedIndex]);
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              _selectedIndex != 2
+                  ? Assets.imagesCartIcon1
+                  : Assets.imagesCartIcon2,
+            ),
+            label: 'My Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              _selectedIndex != 3
+                  ? Assets.imagesAccountIcon1
+                  : Assets.imagesAccountIcon2,
+            ),
+            label: 'Account',
+          ),
+        ],
+      ),
+      body:
+          <Widget>[
+            MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => ProductCubit(getIt.get<HomeRepo>()),
+                ),
+                BlocProvider(
+                  create:
+                      (context) => OfferCubit(homeRepo: getIt.get<HomeRepo>()),
+                ),
+                BlocProvider(
+                  create:
+                      (context) =>
+                          CategoryCubit(homeRepo: getIt.get<HomeRepo>()),
+                ),
+              ],
+              child: const HomeView(),
+            ),
+            BlocProvider(
+              create:
+                  (context) => CategoryCubit(homeRepo: getIt.get<HomeRepo>()),
+              child: const CategoriesView(),
+            ),
+            const MyCartView(),
+            BlocProvider(
+              create:
+                  (context) =>
+                      ProfileCubit(profileRepo: getIt.get<ProfileRepo>()),
+              child: const AccountView(),
+            ),
+          ][_selectedIndex],
+    );
   }
 }

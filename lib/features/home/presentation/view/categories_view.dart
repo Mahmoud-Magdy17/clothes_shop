@@ -28,20 +28,14 @@ class _CategoriesViewState extends State<CategoriesView> {
       body: BlocBuilder<CategoryCubit, CategoryState>(
         builder: (context, state) {
           if (state is CategorySuccess) {
-            return CategoriesViewBody(
-              categories: state.categories,
-            );
+            return CategoriesViewBody(categories: state.categories);
           } else if (state is CategoryFailure) {
             return const Center(
-              child: Text(
-                "Oops something went wrong, please try later",
-              ),
+              child: Text("Oops something went wrong, please try later"),
             );
           } else {
             return Skeletonizer(
-              child: CategoriesViewBody(
-                categories: getDummyCategories(),
-              ),
+              child: CategoriesViewBody(categories: getDummyCategories()),
             );
           }
         },

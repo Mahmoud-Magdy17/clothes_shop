@@ -26,23 +26,19 @@ class SplashViewBody extends StatelessWidget {
         height: 240,
         fit: BoxFit.fill,
       ),
-      title: const Text(
-        'Clothes Shop',
-        style: Styles.heading1Bold,
-      ),
+      title: const Text('Clothes Shop', style: Styles.heading1Bold),
       loaderColor: kDarkGreyColor,
       logoWidth: 60,
       loadingText: Text(
         'All You Want',
-        style: Styles.caption1Regular.copyWith(
-          color: kDarkGreyColor,
-        ),
+        style: Styles.caption1Regular.copyWith(color: kDarkGreyColor),
       ),
-      navigator: onBoarding
-          ? logInSuccess
-              ? const CustomBottomNavigationBar()
-              : const StartView()
-          : const OnboardingView(),
+      navigator:
+          onBoarding
+              ? logInSuccess
+                  ? const CustomBottomNavigationBar()
+                  : const StartView()
+              : const OnboardingView(),
       durationInSeconds: 3,
     );
   }

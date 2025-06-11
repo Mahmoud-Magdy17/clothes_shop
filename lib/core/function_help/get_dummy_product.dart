@@ -68,10 +68,11 @@ List<OfferEntity> getDummyOffers() {
 
 CategoryEntity getDummyCategory() {
   return CategoryEntity(
-      id: 3,
-      title: '',
-      imageUrl:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3wxJ0c-jC6VcDASO9aiDWD9zWAeJLKrS5gg&s');
+    id: 3,
+    title: '',
+    imageUrl:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3wxJ0c-jC6VcDASO9aiDWD9zWAeJLKrS5gg&s',
+  );
 }
 
 List<CategoryEntity> getDummyCategories() {

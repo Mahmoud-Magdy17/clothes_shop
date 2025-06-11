@@ -21,20 +21,16 @@ class CustomItemFromEditAndAccountDetails extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: Styles.subTitle1Bold,
-        ),
+        Text(title, style: Styles.subTitle1Bold),
         TextField(
           readOnly: !isEdit,
           decoration: InputDecoration(
-              // contentPadding: EdgeInsets.symmetric(vertical: 0.0),
-              hintText: value,
-              isDense: true,
-              contentPadding: const EdgeInsets.symmetric(vertical: 5.0),
-              hintStyle: Styles.bodyText1Regular.copyWith(
-                color: kGreyColor,
-              )),
+            // contentPadding: EdgeInsets.symmetric(vertical: 0.0),
+            hintText: value,
+            isDense: true,
+            contentPadding: const EdgeInsets.symmetric(vertical: 5.0),
+            hintStyle: Styles.bodyText1Regular.copyWith(color: kGreyColor),
+          ),
         ),
       ],
     );

@@ -1,11 +1,7 @@
 import 'package:clothes_shop_app/features/home/domain/entities/category_entity.dart';
 
 class CategoryModel {
-  CategoryModel({
-    this.id,
-    this.name,
-    this.imgURL,
-  });
+  CategoryModel({this.id, this.name, this.imgURL});
 
   CategoryModel.fromJson(dynamic json) {
     id = json['id'];
@@ -14,11 +10,7 @@ class CategoryModel {
   }
 
   CategoryEntity toEntity() {
-    return CategoryEntity(
-      id: id!,
-      title: name!,
-      imageUrl: imgURL!,
-    );
+    return CategoryEntity(id: id!, title: name!, imageUrl: imgURL!);
   }
 
   num? id;

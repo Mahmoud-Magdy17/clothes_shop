@@ -28,10 +28,7 @@ class DioConsumer extends ApiConsumer {
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
-      var response = await dio.get(
-        path,
-        queryParameters: queryParameters,
-      );
+      var response = await dio.get(path, queryParameters: queryParameters);
 
       return response.data;
     } on DioException catch (e) {
@@ -41,7 +38,8 @@ class DioConsumer extends ApiConsumer {
       }
     } catch (e) {
       logger.e(
-          "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e");
+        "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e",
+      );
 
       throw CustomException(message: e.toString());
     }
@@ -65,7 +63,8 @@ class DioConsumer extends ApiConsumer {
         throw CustomException(message: e.response!.data);
       } else {
         logger.e(
-            "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e");
+          "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e",
+        );
 
         throw CustomException(message: e.toString());
       }
@@ -91,7 +90,8 @@ class DioConsumer extends ApiConsumer {
       }
     } catch (e) {
       logger.e(
-          "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e");
+        "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e",
+      );
 
       throw CustomException(message: e.toString());
     }
@@ -115,7 +115,8 @@ class DioConsumer extends ApiConsumer {
         throw CustomException(message: e.response!.data);
       } else {
         logger.e(
-            "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e");
+          "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e",
+        );
 
         throw CustomException(message: e.toString());
       }
@@ -141,7 +142,8 @@ class DioConsumer extends ApiConsumer {
       }
     } catch (e) {
       logger.e(
-          "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e");
+        "Exception in  firebaseAuthService.createUserWithEmailAndPassword :$e",
+      );
 
       throw CustomException(message: e.toString());
     }

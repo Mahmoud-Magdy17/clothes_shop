@@ -13,7 +13,9 @@ class OfferCubit extends Cubit<OfferState> {
   Future<void> fetchGetAllOffers() async {
     emit(OfferLoading());
     var result = await homeRepo.fetchGetAllOver();
-    result.fold((failure) => emit(OfferFailure(failure.message)),
-        (offers) => emit(OfferSuccess(offers)));
+    result.fold(
+      (failure) => emit(OfferFailure(failure.message)),
+      (offers) => emit(OfferSuccess(offers)),
+    );
   }
 }

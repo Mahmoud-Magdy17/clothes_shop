@@ -8,10 +8,7 @@ import 'package:clothes_shop_app/features/home/domain/entities/product_entity.da
 import 'package:flutter/material.dart';
 
 class DetailsSection extends StatelessWidget {
-  const DetailsSection({
-    super.key,
-    required this.productDetails,
-  });
+  const DetailsSection({super.key, required this.productDetails});
 
   final ProductEntity productDetails;
 
@@ -24,9 +21,7 @@ class DetailsSection extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(32),
-          ),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
           boxShadow: [
             BoxShadow(
               color: Colors.grey,
@@ -54,49 +49,39 @@ class DetailsSection extends StatelessWidget {
                     ),
                     Text(
                       productDetails.material,
-                      style: Styles.caption1Regular.copyWith(
-                        color: kGreyColor,
-                      ),
+                      style: Styles.caption1Regular.copyWith(color: kGreyColor),
                     ),
                   ],
                 ),
                 const CustomCounter(),
               ],
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizeOfProduct(),
-                CustomListOfColor(colors: [
-                  Colors.red,
-                  Colors.black,
-                  Colors.blue,
-                  Colors.green,
-                  Colors.yellow,
-                ]),
+                CustomListOfColor(
+                  colors: [
+                    Colors.red,
+                    Colors.black,
+                    Colors.blue,
+                    Colors.green,
+                    Colors.yellow,
+                  ],
+                ),
               ],
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             Text(
-              'Description',
-              style: Styles.subTitle1Bold.copyWith(
-                color: kDarkGreyColor,
-              ),
+              productDetails.description,
+              style: Styles.subTitle1Bold.copyWith(color: kDarkGreyColor),
             ),
             Text(
               productDetails.description,
-              style: Styles.textButton.copyWith(
-                color: kGreyColor,
-              ),
+              style: Styles.textButton.copyWith(color: kGreyColor),
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -106,9 +91,7 @@ class DetailsSection extends StatelessWidget {
                   children: [
                     Text(
                       'Price',
-                      style: Styles.caption2Regular.copyWith(
-                        color: kGreyColor,
-                      ),
+                      style: Styles.caption2Regular.copyWith(color: kGreyColor),
                     ),
                     Text(
                       productDetails.price.toString(),
@@ -122,10 +105,7 @@ class DetailsSection extends StatelessWidget {
                   isMinWidth: true,
                   onPressed: () {},
                   title: 'Add To Cart',
-                  child: const Icon(
-                    Icons.shopping_cart,
-                    color: Colors.white,
-                  ),
+                  child: const Icon(Icons.shopping_cart, color: Colors.white),
                 ),
               ],
             ),
@@ -137,9 +117,7 @@ class DetailsSection extends StatelessWidget {
 }
 
 class SizeOfProduct extends StatefulWidget {
-  const SizeOfProduct({
-    super.key,
-  });
+  const SizeOfProduct({super.key});
 
   @override
   State<SizeOfProduct> createState() => _SizeOfProductState();
@@ -156,9 +134,7 @@ class _SizeOfProductState extends State<SizeOfProduct> {
       children: [
         Text(
           'Size',
-          style: Styles.subTitle1Bold.copyWith(
-            color: kDarkGreyColor,
-          ),
+          style: Styles.subTitle1Bold.copyWith(color: kDarkGreyColor),
         ),
         Row(
           children: [
@@ -171,9 +147,7 @@ class _SizeOfProductState extends State<SizeOfProduct> {
                 });
               },
             ),
-            const SizedBox(
-              width: 8,
-            ),
+            const SizedBox(width: 8),
             CustomSize(
               title: 'M',
               isSelected: count == 2 ? isSelected : !isSelected,
@@ -183,9 +157,7 @@ class _SizeOfProductState extends State<SizeOfProduct> {
                 });
               },
             ),
-            const SizedBox(
-              width: 8,
-            ),
+            const SizedBox(width: 8),
             CustomSize(
               title: 'L',
               isSelected: count == 3 ? isSelected : !isSelected,
@@ -195,9 +167,7 @@ class _SizeOfProductState extends State<SizeOfProduct> {
                 });
               },
             ),
-            const SizedBox(
-              width: 8,
-            ),
+            const SizedBox(width: 8),
             CustomSize(
               title: 'XL',
               isSelected: count == 4 ? isSelected : !isSelected,
@@ -207,9 +177,7 @@ class _SizeOfProductState extends State<SizeOfProduct> {
                 });
               },
             ),
-            const SizedBox(
-              width: 8,
-            ),
+            const SizedBox(width: 8),
             CustomSize(
               title: 'XXL',
               isSelected: count == 5 ? isSelected : !isSelected,

@@ -18,9 +18,7 @@ class CustomLove extends StatelessWidget {
       child: CircleAvatar(
         radius: 16,
         backgroundColor: kLightGreyColor,
-        child: Icon(
-          isFavorite ? Icons.favorite : Icons.favorite_border,
-        ),
+        child: Icon(isFavorite ? Icons.favorite : Icons.favorite_border),
       ),
     );
   }

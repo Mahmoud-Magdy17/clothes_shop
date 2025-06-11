@@ -3,8 +3,12 @@ import 'package:clothes_shop_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomSize extends StatelessWidget {
-  const CustomSize(
-      {super.key, required this.title, this.onTap, this.isSelected = false});
+  const CustomSize({
+    super.key,
+    required this.title,
+    this.onTap,
+    this.isSelected = false,
+  });
 
   final String title;
   final VoidCallback? onTap;

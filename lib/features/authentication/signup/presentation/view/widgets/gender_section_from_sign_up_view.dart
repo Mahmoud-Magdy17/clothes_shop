@@ -21,12 +21,7 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Gender',
-          style: Styles.subTitle2Bold.copyWith(
-            color: kGreyColor,
-          ),
-        ),
+        Text('Gender', style: Styles.subTitle2Bold.copyWith(color: kGreyColor)),
         Row(
           children: <Widget>[
             Expanded(
@@ -34,9 +29,7 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
                 contentPadding: EdgeInsets.zero,
                 title: Text(
                   'Male',
-                  style: Styles.bodyText2Regular.copyWith(
-                    color: kGreyColor,
-                  ),
+                  style: Styles.bodyText2Regular.copyWith(color: kGreyColor),
                 ),
                 value: Gender.male,
                 groupValue: _selectedGender,
@@ -54,9 +47,7 @@ class _SignUpViewState extends State<GenderSectionFromSignUpView> {
                 contentPadding: EdgeInsets.zero,
                 title: Text(
                   'Female',
-                  style: Styles.bodyText2Regular.copyWith(
-                    color: kGreyColor,
-                  ),
+                  style: Styles.bodyText2Regular.copyWith(color: kGreyColor),
                 ),
                 value: Gender.female,
                 groupValue: _selectedGender,

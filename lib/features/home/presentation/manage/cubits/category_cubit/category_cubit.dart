@@ -13,14 +13,18 @@ class CategoryCubit extends Cubit<CategoryState> {
   Future<void> fetchGetAllCategory() async {
     emit(CategoryLoading());
     var result = await homeRepo.fetchGetAllCategories();
-    result.fold((failure) => emit(CategoryFailure(failure.message)),
-        (categories) => emit(CategorySuccess(categories)));
+    result.fold(
+      (failure) => emit(CategoryFailure(failure.message)),
+      (categories) => emit(CategorySuccess(categories)),
+    );
   }
 
   Future<void> fetchGetCategoryDetails(int id) async {
     emit(CategoryLoading());
     var result = await homeRepo.fetchGetCategoryDetails(id);
-    result.fold((failure) => emit(CategoryFailure(failure.message)),
-        (categories) => emit(CategoryDetailsSuccess(categories)));
+    result.fold(
+      (failure) => emit(CategoryFailure(failure.message)),
+      (categories) => emit(CategoryDetailsSuccess(categories)),
+    );
   }
 }

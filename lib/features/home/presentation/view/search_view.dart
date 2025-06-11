@@ -14,9 +14,7 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ProductCubit(
-        getIt.get<HomeRepo>(),
-      ),
+      create: (context) => ProductCubit(getIt.get<HomeRepo>()),
       child: Scaffold(
         backgroundColor: kVeryLightGreyColor,
         appBar: customAppbar(context, title: 'search'),

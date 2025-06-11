@@ -15,10 +15,7 @@ final class SearchImageSuccess extends SearchState {
   final Uint8List image;
   final String prediction;
 
-  const SearchImageSuccess({
-    required this.image,
-    required this.prediction,
-  });
+  const SearchImageSuccess({required this.image, required this.prediction});
 
   @override
   List<Object?> get props => [image, prediction];

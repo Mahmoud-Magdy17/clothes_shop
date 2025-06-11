@@ -15,27 +15,17 @@ class CategoriesDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CategoryCubit(
-        homeRepo: getIt.get<HomeRepo>(),
-      ),
+      create: (context) => CategoryCubit(homeRepo: getIt.get<HomeRepo>()),
       child: Scaffold(
-        appBar: customAppbar(
-          context,
-          title: 'categories details',
-        ),
-        body: CategoryDetailsViewBuilder(
-          id: id,
-        ),
+        appBar: customAppbar(context, title: 'categories details'),
+        body: CategoryDetailsViewBuilder(id: id),
       ),
     );
   }
 }
 
 class CategoryDetailsViewBuilder extends StatefulWidget {
-  const CategoryDetailsViewBuilder({
-    super.key,
-    required this.id,
-  });
+  const CategoryDetailsViewBuilder({super.key, required this.id});
   final int id;
   @override
   State<CategoryDetailsViewBuilder> createState() =>
@@ -60,9 +50,7 @@ class _CategoryDetailsViewBuilderState
           );
         } else if (state is CategoryFailure) {
           return const Center(
-            child: Text(
-              "Oops something went wrong, please try later",
-            ),
+            child: Text("Oops something went wrong, please try later"),
           );
         } else {
           return Skeletonizer(

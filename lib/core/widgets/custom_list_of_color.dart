@@ -27,22 +27,10 @@ class CustomListOfColor extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          CircleAvatar(
-            radius: 7,
-            backgroundColor: colors[0],
-          ),
-          CircleAvatar(
-            radius: 7,
-            backgroundColor: colors[1],
-          ),
-          CircleAvatar(
-            radius: 7,
-            backgroundColor: colors[2],
-          ),
-          CircleAvatar(
-            radius: 7,
-            backgroundColor: colors[3],
-          ),
+          CircleAvatar(radius: 7, backgroundColor: colors[0]),
+          CircleAvatar(radius: 7, backgroundColor: colors[1]),
+          CircleAvatar(radius: 7, backgroundColor: colors[2]),
+          CircleAvatar(radius: 7, backgroundColor: colors[3]),
         ],
       ),
     );

@@ -25,7 +25,9 @@ abstract class BaseClothesPrediction {
   }
 
   Future<Float32List> imageToByteListFloat32(
-      img.Image image, int inputSize) async {
+    img.Image image,
+    int inputSize,
+  ) async {
     var convertedBytes = Float32List(inputSize * inputSize * 3);
     int pixelIndex = 0;
 
@@ -60,8 +62,10 @@ abstract class BaseClothesPrediction {
 
     Float32List input = await imageToByteListFloat32(image, inputSize);
     var reshapedInput = input.reshape([1, inputSize, inputSize, 3]);
-    var output =
-        List.filled(1 * labels.length, 0.0).reshape([1, labels.length]);
+    var output = List.filled(
+      1 * labels.length,
+      0.0,
+    ).reshape([1, labels.length]);
 
     interpreter.run(reshapedInput, output);
     interpreter.close(); // Free memory

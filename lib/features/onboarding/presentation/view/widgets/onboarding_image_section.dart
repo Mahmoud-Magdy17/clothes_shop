@@ -28,9 +28,7 @@ class OnboardingImageSection extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const SizedBox(
-              height: 25,
-            ),
+            const SizedBox(height: 25),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 0.0),
               child: Row(
@@ -38,18 +36,14 @@ class OnboardingImageSection extends StatelessWidget {
                 children: [
                   theFirst != true
                       ? IconButton(
-                          onPressed: onPressedToBack,
-                          icon: const Icon(
-                            Icons.arrow_back_ios_new_outlined,
-                          ),
-                        )
+                        onPressed: onPressedToBack,
+                        icon: const Icon(Icons.arrow_back_ios_new_outlined),
+                      )
                       : const SizedBox(),
                 ],
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             const Spacer(),
             Stack(
               clipBehavior: Clip.none,
@@ -57,15 +51,9 @@ class OnboardingImageSection extends StatelessWidget {
                 Positioned(
                   top: -40,
                   left: -20,
-                  child: Image.asset(
-                    Assets.imagesOnboarding,
-                    fit: BoxFit.fill,
-                  ),
+                  child: Image.asset(Assets.imagesOnboarding, fit: BoxFit.fill),
                 ),
-                Image.asset(
-                  image,
-                  fit: BoxFit.fill,
-                ),
+                Image.asset(image, fit: BoxFit.fill),
               ],
             ),
             const Spacer(),

@@ -4,11 +4,12 @@ import '../../constants.dart';
 import '../../generated/assets.dart';
 
 class CustomPasswordInput extends StatefulWidget {
-  const CustomPasswordInput(
-      {super.key,
-      required this.hintText,
-      required this.labelText,
-      this.onSaved});
+  const CustomPasswordInput({
+    super.key,
+    required this.hintText,
+    required this.labelText,
+    this.onSaved,
+  });
 
   final String hintText;
   final String labelText;

@@ -8,10 +8,7 @@ import '../../../domain/entities/offer_entity.dart';
 import 'custom_caroisel_slider.dart';
 
 class OffersSection extends StatelessWidget {
-  const OffersSection({
-    super.key,
-    required this.offers,
-  });
+  const OffersSection({super.key, required this.offers});
   final List<OfferEntity> offers;
   @override
   Widget build(BuildContext context) {
@@ -44,23 +41,24 @@ class OffersSection extends StatelessWidget {
             for (int i = 0; i < offers.length; i++)
               CachedNetworkImage(
                 imageUrl: offers[i].image,
-                imageBuilder: (context, imageProvider) => Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.cover,
+                imageBuilder:
+                    (context, imageProvider) => Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                placeholder: (context, url) => const Skeletonizer(
-                    child: SizedBox(
-                  width: double.infinity,
-                  height: double.infinity,
-                )),
-                errorWidget: (context, url, error) => const Icon(
-                  Icons.error,
-                ),
+                placeholder:
+                    (context, url) => const Skeletonizer(
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                      ),
+                    ),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
           ],
         ),

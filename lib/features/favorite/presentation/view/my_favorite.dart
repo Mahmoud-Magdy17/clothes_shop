@@ -1,48 +1,25 @@
+import 'package:clothes_shop_app/core/api/dio_consumer.dart';
 import 'package:clothes_shop_app/core/widgets/custom_app_bar.dart';
-import 'package:clothes_shop_app/core/widgets/custom_cart.dart';
-import 'package:clothes_shop_app/generated/assets.dart';
+import 'package:clothes_shop_app/features/favorite/data/repos/favorite_repo/favorite_repo_impl.dart';
+import 'package:clothes_shop_app/features/favorite/presentation/managers/favorite_cubit/favorite_cubit.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'widgets/taps_section.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'widgets/my_favorite_view_body.dart';
 
 class MyFavorite extends StatelessWidget {
   const MyFavorite({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppbar(context, title: 'My Favorite'),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          children: [
-            const TapsSection(),
-            const SizedBox(height: 24.0),
-            SingleChildScrollView(
-              child: GridView.count(
-                padding: EdgeInsets.zero,
-                crossAxisCount: 2,
-                childAspectRatio: 0.65,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                children: List.generate(
-                  3,
-                  (index) {
-                    return const CustomCard(
-                      title: 'Muslim Tops Loose',
-                      subTitle: 'Isdal',
-                      price: '1500EG',
-                      image: Assets.imagesTest,
-                      id: 1,
-                      materials: 'cotons',
-                    );
-                  },
-                ),
-              ),
-            ),
-          ],
-        ),
+    return BlocProvider(
+      create:
+          (context) => FavoriteCubit(
+            repoImpl: FavoriteRepoImpl(dioConsumer: DioConsumer(dio: Dio())),
+          ),
+      child: Scaffold(
+        appBar: customAppbar(context, title: 'My Favorite'),
+        body: MyFavoriteViewBody(),
       ),
     );
   }

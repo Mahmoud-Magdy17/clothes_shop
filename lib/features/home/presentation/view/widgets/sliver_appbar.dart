@@ -31,23 +31,15 @@ class CustomSliverAppBar extends StatelessWidget {
             Navigator.push(
               context,
               AppRouter.router(
-                const RouteSettings(
-                  name: AppRouter.kFavoriteView,
-                ),
+                const RouteSettings(name: AppRouter.kFavoriteView),
               ),
             );
           },
-          icon: const Icon(
-            Icons.favorite_border,
-            color: kGreyColor,
-          ),
+          icon: const Icon(Icons.favorite_border, color: kGreyColor),
         ),
         IconButton(
           onPressed: () {},
-          icon: const Icon(
-            Icons.notifications_none,
-            color: kGreyColor,
-          ),
+          icon: const Icon(Icons.notifications_none, color: kGreyColor),
         ),
       ],
     );

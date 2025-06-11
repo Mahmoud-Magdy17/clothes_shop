@@ -32,9 +32,7 @@ class InputSectionFromSignUpView extends StatelessWidget {
           labelText: 'Username',
           prefixIcon: Assets.imagesPersonIcon,
         ),
-        const SizedBox(
-          height: 12,
-        ),
+        const SizedBox(height: 12),
         CustomInput(
           onSaved: onSavedToEmail,
           keyboardType: TextInputType.emailAddress,
@@ -54,25 +52,19 @@ class InputSectionFromSignUpView extends StatelessWidget {
             return null;
           },
         ),
-        const SizedBox(
-          height: 12,
-        ),
+        const SizedBox(height: 12),
         CustomPasswordInput(
           onSaved: onSavedToPassword,
           hintText: 'Enter your password',
           labelText: 'Password',
         ),
-        const SizedBox(
-          height: 12,
-        ),
+        const SizedBox(height: 12),
         CustomPasswordInput(
           onSaved: onSavedToConfirmPassword,
           hintText: 'Enter your password',
           labelText: 'Confirm Password',
         ),
-        const SizedBox(
-          height: 12,
-        ),
+        const SizedBox(height: 12),
         CustomInput(
           keyboardType: TextInputType.number,
           onSaved: onSavedToPhoneNumber,
@@ -89,9 +81,7 @@ class InputSectionFromSignUpView extends StatelessWidget {
             return null;
           },
         ),
-        const SizedBox(
-          height: 12,
-        ),
+        const SizedBox(height: 12),
         CustomInput(
           onSaved: onSavedToLocation,
           hintText: 'Enter your Location',

@@ -12,14 +12,16 @@ class MyCartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppbar(context, title: 'My Cart', actions: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.shopping_cart_outlined,
+      appBar: customAppbar(
+        context,
+        title: 'My Cart',
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.shopping_cart_outlined),
           ),
-        ),
-      ]),
+        ],
+      ),
       body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: CartListViewItem(),
@@ -29,27 +31,21 @@ class MyCartView extends StatelessWidget {
 }
 
 class CartListViewItem extends StatelessWidget {
-  const CartListViewItem({
-    super.key,
-  });
+  const CartListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       itemBuilder: (context, index) => const CartItem(),
-      separatorBuilder: (context, index) => Container(
-        color: Colors.transparent,
-        height: 8,
-      ),
+      separatorBuilder:
+          (context, index) => Container(color: Colors.transparent, height: 8),
       itemCount: 10,
     );
   }
 }
 
 class CartItem extends StatelessWidget {
-  const CartItem({
-    super.key,
-  });
+  const CartItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -96,22 +92,14 @@ class CartItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 8,
-                  ),
+                  const SizedBox(height: 8),
                   const Text('T-Shirt', style: Styles.subTitle1Bold),
-                  const SizedBox(
-                    height: 8,
-                  ),
+                  const SizedBox(height: 8),
                   Text(
                     ' T-Shirt',
-                    style: Styles.caption2Regular.copyWith(
-                      color: kGreyColor,
-                    ),
+                    style: Styles.caption2Regular.copyWith(color: kGreyColor),
                   ),
-                  const SizedBox(
-                    height: 8,
-                  ),
+                  const SizedBox(height: 8),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,9 +110,7 @@ class CartItem extends StatelessWidget {
                           color: kDarkGreyColor,
                         ),
                       ),
-                      const SizedBox(
-                        width: 48,
-                      ),
+                      const SizedBox(width: 48),
                       const CustomCounter(),
                     ],
                   ),

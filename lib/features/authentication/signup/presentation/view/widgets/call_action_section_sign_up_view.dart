@@ -5,10 +5,7 @@ import 'package:clothes_shop_app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class CallActionSectionSignUpView extends StatelessWidget {
-  const CallActionSectionSignUpView({
-    super.key,
-    required this.onPressed,
-  });
+  const CallActionSectionSignUpView({super.key, required this.onPressed});
 
   final VoidCallback onPressed;
 
@@ -16,37 +13,27 @@ class CallActionSectionSignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomButton(
-          onPressed: onPressed,
-          title: 'Sign up',
-        ),
+        CustomButton(onPressed: onPressed, title: 'Sign up'),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Already have an account?',
-              style: Styles.bodyText1Regular.copyWith(
-                color: kGreyColor,
-              ),
+              style: Styles.bodyText1Regular.copyWith(color: kGreyColor),
             ),
             TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
                   AppRouter.router(
-                    const RouteSettings(
-                      name: AppRouter.kLogInView,
-                    ),
+                    const RouteSettings(name: AppRouter.kLogInView),
                   ),
                 );
               },
               style: const ButtonStyle(
                 foregroundColor: WidgetStatePropertyAll(kDarkGreyColor),
               ),
-              child: const Text(
-                'LOGIN',
-                style: Styles.caption1Regular,
-              ),
+              child: const Text('LOGIN', style: Styles.caption1Regular),
             ),
           ],
         ),

@@ -10,9 +10,7 @@ import '../../../../../../constants.dart';
 import 'log_in_view_body.dart';
 
 class LogInViewBodyBlocBuilder extends StatelessWidget {
-  const LogInViewBodyBlocBuilder({
-    super.key,
-  });
+  const LogInViewBodyBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +20,7 @@ class LogInViewBodyBlocBuilder extends StatelessWidget {
           Navigator.pushAndRemoveUntil(
             context,
             AppRouter.router(
-              const RouteSettings(
-                name: AppRouter.kBottomNavigationBar,
-              ),
+              const RouteSettings(name: AppRouter.kBottomNavigationBar),
             ),
             (route) => false,
           );

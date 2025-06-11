@@ -87,14 +87,8 @@ class _OnboardingViewState extends State<OnboardingView>
                 ),
               ),
             ),
-            const SizedBox(
-              height: 24,
-            ),
-            _selectedIndex == 2
-                ? const SizedBox(
-                    height: 24,
-                  )
-                : const SizedBox(),
+            const SizedBox(height: 24),
+            _selectedIndex == 2 ? const SizedBox(height: 24) : const SizedBox(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: CustomButton(
@@ -107,37 +101,31 @@ class _OnboardingViewState extends State<OnboardingView>
                         const RouteSettings(name: AppRouter.kStartView),
                       ),
                     );
-                    CacheHelper.sharedPreferences
-                        .setBool(sharedPrefOnBoardingImage, true);
+                    CacheHelper.sharedPreferences.setBool(
+                      sharedPrefOnBoardingImage,
+                      true,
+                    );
                   } else {
                     _controller?.animateTo(_selectedIndex += 1);
-                    setState(
-                      () {},
-                    );
+                    setState(() {});
                   }
                 },
               ),
             ),
-            const SizedBox(
-              height: 8,
-            ),
+            const SizedBox(height: 8),
             _selectedIndex != 2
                 ? Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: CustomButton(
-                      isDefault: false,
-                      title: 'Skip',
-                      onPressed: () {
-                        _controller?.animateTo(_selectedIndex = 2);
-                        setState(
-                          () {},
-                        );
-                      },
-                    ),
-                  )
-                : const SizedBox(
-                    height: 24,
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: CustomButton(
+                    isDefault: false,
+                    title: 'Skip',
+                    onPressed: () {
+                      _controller?.animateTo(_selectedIndex = 2);
+                      setState(() {});
+                    },
                   ),
+                )
+                : const SizedBox(height: 24),
           ],
         ),
       ),

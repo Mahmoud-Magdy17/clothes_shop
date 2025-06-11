@@ -7,10 +7,7 @@ import 'package:flutter/material.dart';
 import 'categories_item.dart';
 
 class CategoriesSection extends StatelessWidget {
-  const CategoriesSection({
-    super.key,
-    required this.categories,
-  });
+  const CategoriesSection({super.key, required this.categories});
 
   final List<CategoryEntity> categories;
 
@@ -25,9 +22,7 @@ class CategoriesSection extends StatelessWidget {
             'Categories',
             style: Styles.heading3Bold.copyWith(color: kDarkGreyColor),
           ),
-          const SizedBox(
-            height: 8,
-          ),
+          const SizedBox(height: 8),
           SizedBox(
             height: 90,
             child: ListView.separated(
@@ -52,9 +47,7 @@ class CategoriesSection extends StatelessWidget {
                 );
               },
               separatorBuilder: (BuildContext context, int index) {
-                return const SizedBox(
-                  width: 16,
-                );
+                return const SizedBox(width: 16);
               },
               itemCount: categories.length > 4 ? 4 : categories.length,
             ),

@@ -17,42 +17,27 @@ class ForgotPasswordViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 8,
-            ),
-            const Text(
-              'Forgot Password',
-              style: Styles.heading2Bold,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 8),
+            const Text('Forgot Password', style: Styles.heading2Bold),
+            const SizedBox(height: 16),
             Text(
               'Please enter your e-mail address \n to continue',
               textAlign: TextAlign.center,
-              style: Styles.bodyText2Regular.copyWith(
-                color: kGreyColor,
-              ),
+              style: Styles.bodyText2Regular.copyWith(color: kGreyColor),
             ),
-            const SizedBox(
-              height: 32,
-            ),
+            const SizedBox(height: 32),
             const CustomInput(
               hintText: 'Enter your email',
               labelText: 'Email',
               prefixIcon: Assets.imagesEmailIcon,
             ),
-            const SizedBox(
-              height: 32,
-            ),
+            const SizedBox(height: 32),
             CustomButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   AppRouter.router(
-                    const RouteSettings(
-                      name: AppRouter.kVerificationView,
-                    ),
+                    const RouteSettings(name: AppRouter.kVerificationView),
                   ),
                 );
               },

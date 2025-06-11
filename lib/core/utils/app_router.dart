@@ -41,106 +41,136 @@ abstract class AppRouter {
   static Route<Object?> router(RouteSettings settings) {
     switch (settings.name) {
       case kSplash:
-        return MaterialPageRoute(builder: (context) {
-          return const SplashView(); //replace this Scaffold with a Splash Screen
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const SplashView(); //replace this Scaffold with a Splash Screen
+          },
+        );
 
       case kOnBoarding:
-        return MaterialPageRoute(builder: (context) {
-          return const OnboardingView(); //replace this Scaffold with a on boarding Screen
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const OnboardingView(); //replace this Scaffold with a on boarding Screen
+          },
+        );
 
       case kStartView:
-        return MaterialPageRoute(builder: (context) {
-          return const StartView(); //replace this Scaffold with a on boarding Screen
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const StartView(); //replace this Scaffold with a on boarding Screen
+          },
+        );
 
       case kLogInView:
-        return MaterialPageRoute(builder: (context) {
-          return const LogInView();
-        }); //replace this Scaffold with a on boarding Screen
+        return MaterialPageRoute(
+          builder: (context) {
+            return const LogInView();
+          },
+        ); //replace this Scaffold with a on boarding Screen
 
       case kForgotPasswordView:
-        return MaterialPageRoute(builder: (context) {
-          return const ForgotPasswordView();
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const ForgotPasswordView();
+          },
+        );
 
       case kVerificationView:
-        return MaterialPageRoute(builder: (context) {
-          return const VerificationView();
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const VerificationView();
+          },
+        );
 
       case kNewPasswordView:
-        return MaterialPageRoute(builder: (context) {
-          return const NewPasswordView();
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const NewPasswordView();
+          },
+        );
 
       case kSignUpView:
-        return MaterialPageRoute(builder: (context) {
-          return const SignUpView();
-        }); //replace this Scaffold with a on boarding Screen
+        return MaterialPageRoute(
+          builder: (context) {
+            return const SignUpView();
+          },
+        ); //replace this Scaffold with a on boarding Screen
 
       case kBottomNavigationBar:
-        return MaterialPageRoute(builder: (context) {
-          return const CustomBottomNavigationBar();
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const CustomBottomNavigationBar();
+          },
+        );
 
       case kHomeView:
-        return MaterialPageRoute(builder: (context) {
-          return const HomeView();
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const HomeView();
+          },
+        );
 
       case kAccountDerailsView:
-        return MaterialPageRoute(builder: (context) {
-          return const AccountDetailsView();
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const AccountDetailsView();
+          },
+        );
 
       case kCategoriesView:
-        return MaterialPageRoute(builder: (context) {
-          return const CategoriesView();
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const CategoriesView();
+          },
+        );
 
       case kCategoriesDetailsView:
         final arguments = settings.arguments as Map<String, dynamic>;
         final id = arguments['id'] as int;
-        return MaterialPageRoute(builder: (context) {
-          return CategoriesDetailsView(
-            id: id,
-          );
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return CategoriesDetailsView(id: id);
+          },
+        );
 
       case kProductDetailsView:
         final arguments = settings.arguments as Map<String, dynamic>;
         final id = arguments['id'] as int;
-        return MaterialPageRoute(builder: (context) {
-          return ProductDetailsView(
-            id: id,
-          );
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return ProductDetailsView(id: id);
+          },
+        );
 
       case kEditProfile:
-        return MaterialPageRoute(builder: (context) {
-          return const EditProfileView();
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const EditProfileView();
+          },
+        );
 
       case kSearchView:
-        return MaterialPageRoute(builder: (context) {
-          return const SearchView();
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const SearchView();
+          },
+        );
 
       case kFavoriteView:
-        return MaterialPageRoute(builder: (context) {
-          return const MyFavorite();
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const MyFavorite();
+          },
+        );
 
       default:
-        return MaterialPageRoute(builder: (context) {
-          return const Scaffold(
-            body: Center(
-              child: Text("AppStrings.notFound"),
-            ),
-          );
-        });
+        return MaterialPageRoute(
+          builder: (context) {
+            return const Scaffold(
+              body: Center(child: Text("AppStrings.notFound")),
+            );
+          },
+        );
     }
   }
 }

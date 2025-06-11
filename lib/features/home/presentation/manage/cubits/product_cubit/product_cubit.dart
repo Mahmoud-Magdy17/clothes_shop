@@ -29,18 +29,12 @@ class ProductCubit extends Cubit<ProductState> {
       (failure) {
         log("fail get product: ${failure.message}");
 
-        emit(
-          ProductFailure(
-            failure.message,
-          ),
-        );
+        emit(ProductFailure(failure.message));
       },
       (product) async {
         await isFavorite(productId: id);
         log(product.name);
-        emit(
-          ProductDetailsSuccess(product),
-        );
+        emit(ProductDetailsSuccess(product));
         prodcutDetails = product;
       },
     );

@@ -17,8 +17,9 @@ class ProfileRepoImpl implements ProfileRepo {
   @override
   Future<Either<Failure, ProfileEntity>> getProfileDataDetails() async {
     try {
-      var response =
-          await dioConsumer.get("${EndPoint.baseUrl}User/GetUserDetails");
+      var response = await dioConsumer.get(
+        "${EndPoint.baseUrl}User/GetUserDetails",
+      );
 
       ProfileEntity profileDetails;
       profileDetails = ProfileModel.fromJson(response).toEntity();

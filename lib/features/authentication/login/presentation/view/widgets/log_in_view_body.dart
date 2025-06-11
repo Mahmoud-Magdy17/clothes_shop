@@ -33,25 +33,14 @@ class _LogInViewBodyState extends State<LogInViewBody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 8,
-              ),
-              const Text(
-                'Login',
-                style: Styles.heading2Bold,
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 8),
+              const Text('Login', style: Styles.heading2Bold),
+              const SizedBox(height: 16),
               Text(
                 'Enter your information',
-                style: Styles.heading3Bold.copyWith(
-                  color: kDarkGreyColor,
-                ),
+                style: Styles.heading3Bold.copyWith(color: kDarkGreyColor),
               ),
-              const SizedBox(
-                height: 12,
-              ),
+              const SizedBox(height: 12),
               InputSectionFromLogInView(
                 onSavedToEmail: (value) {
                   email = value!;
@@ -61,18 +50,13 @@ class _LogInViewBodyState extends State<LogInViewBody> {
                 },
               ),
               const ForgotSectionFromLogInView(),
-              const SizedBox(
-                height: 32,
-              ),
+              const SizedBox(height: 32),
               CallActionSectionFromLogInView(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     autovalidateMode = AutovalidateMode.disabled;
-                    context.read<LoginCubit>().login(
-                          email,
-                          password,
-                        );
+                    context.read<LoginCubit>().login(email, password);
                     setState(() {});
                   } else {
                     autovalidateMode = AutovalidateMode.always;

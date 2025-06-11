@@ -19,9 +19,7 @@ abstract class HomeRepo {
   Future<Either<Failure, List<CategoryDetailsEntity>>> fetchGetCategoryDetails(
     int id,
   );
-  Future<Either<Favorite, Failure>> isFavorite({
-    required int productId,
-  });
+  Future<Either<Favorite, Failure>> isFavorite({required int productId});
   Future<Either<bool, Failure>> setFavorite({
     required int productId,
     required bool isFavorite,

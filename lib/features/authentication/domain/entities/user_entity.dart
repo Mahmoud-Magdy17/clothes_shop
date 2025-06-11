@@ -7,12 +7,13 @@ class UserEntity {
   final String location;
   final bool isMale;
 
-  UserEntity(
-      {required this.passWord,
-      required this.confirmPassword,
-      required this.phone,
-      required this.location,
-      required this.isMale,
-      required this.email,
-      required this.name});
+  UserEntity({
+    required this.passWord,
+    required this.confirmPassword,
+    required this.phone,
+    required this.location,
+    required this.isMale,
+    required this.email,
+    required this.name,
+  });
 }

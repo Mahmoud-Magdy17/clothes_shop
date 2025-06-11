@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'account_list_tile_item.dart';
 
 class ListViewSection extends StatelessWidget {
-  const ListViewSection({
-    super.key,
-  });
+  const ListViewSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +42,7 @@ class ListViewSection extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Divider(
-              height: 0,
-            ),
+            child: Divider(height: 0),
           ),
           const AccountListTileItem(
             title: 'Favorite',
@@ -54,9 +50,7 @@ class ListViewSection extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Divider(
-              height: 0,
-            ),
+            child: Divider(height: 0),
           ),
           const AccountListTileItem(
             title: 'Notification',
@@ -64,9 +58,7 @@ class ListViewSection extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Divider(
-              height: 0,
-            ),
+            child: Divider(height: 0),
           ),
           const AccountListTileItem(
             title: 'Payment',
@@ -74,9 +66,7 @@ class ListViewSection extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Divider(
-              height: 0,
-            ),
+            child: Divider(height: 0),
           ),
           const AccountListTileItem(
             title: 'My Orders',
@@ -84,19 +74,12 @@ class ListViewSection extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Divider(
-              height: 0,
-            ),
+            child: Divider(height: 0),
           ),
-          const AccountListTileItem(
-            title: 'Setting',
-            icon: Icons.settings,
-          ),
+          const AccountListTileItem(title: 'Setting', icon: Icons.settings),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Divider(
-              height: 0,
-            ),
+            child: Divider(height: 0),
           ),
           const AccountListTileItem(
             title: 'Privacy Policy',
@@ -104,9 +87,7 @@ class ListViewSection extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Divider(
-              height: 0,
-            ),
+            child: Divider(height: 0),
           ),
           const AccountListTileItem(
             title: 'Frequently Asked Questions',
@@ -114,9 +95,7 @@ class ListViewSection extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Divider(
-              height: 0,
-            ),
+            child: Divider(height: 0),
           ),
           const AccountListTileItem(
             title: 'Legal Information',
@@ -124,13 +103,9 @@ class ListViewSection extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Divider(
-              height: 0,
-            ),
+            child: Divider(height: 0),
           ),
-          const SizedBox(
-            height: 10,
-          )
+          const SizedBox(height: 10),
         ],
       ),
     );

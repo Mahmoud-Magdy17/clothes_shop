@@ -27,15 +27,16 @@ class ProductModel {
 
   ProductEntity toEntity() {
     return ProductEntity(
-        id: id!,
-        name: name!,
-        price: price!,
-        imagePath: imagePath!,
-        description: description!,
-        material: material!,
-        subCategory: subCategory!,
-        categoryId: categoryId!,
-        category: category!);
+      id: id!,
+      name: name!,
+      price: price!,
+      imagePath: imagePath!,
+      description: description!,
+      material: material!,
+      subCategory: subCategory!,
+      categoryId: categoryId!,
+      category: category!,
+    );
   }
 
   num? id;

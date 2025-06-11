@@ -5,9 +5,7 @@ import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
 
 class AccountSectionFromAccountDetails extends StatelessWidget {
-  const AccountSectionFromAccountDetails({
-    super.key,
-  });
+  const AccountSectionFromAccountDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +18,11 @@ class AccountSectionFromAccountDetails extends StatelessWidget {
           width: 70,
           height: 70,
         ),
-        const SizedBox(
-          height: 12,
-        ),
-        const Text(
-          'Mohamed',
-          style: Styles.subTitle1Bold,
-        ),
+        const SizedBox(height: 12),
+        const Text('Mohamed', style: Styles.subTitle1Bold),
         Text(
           'Mexoattlla123@gmail.com',
-          style: Styles.caption1Regular.copyWith(
-            color: kDarkGreyColor,
-          ),
+          style: Styles.caption1Regular.copyWith(color: kDarkGreyColor),
         ),
       ],
     );

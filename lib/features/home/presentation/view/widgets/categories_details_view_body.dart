@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../domain/entities/category_details_entity.dart';
 
 class CategoriesDetailsViewBody extends StatelessWidget {
-  const CategoriesDetailsViewBody({
-    super.key,
-    required this.categoriesDetails,
-  });
+  const CategoriesDetailsViewBody({super.key, required this.categoriesDetails});
 
   final List<CategoryDetailsEntity> categoriesDetails;
 
@@ -21,19 +18,16 @@ class CategoriesDetailsViewBody extends StatelessWidget {
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
         shrinkWrap: true,
-        children: List.generate(
-          categoriesDetails.length,
-          (index) {
-            return CustomCard(
-              title: categoriesDetails[index].name,
-              subTitle: categoriesDetails[index].subCategory,
-              price: categoriesDetails[index].price.toString(),
-              image: categoriesDetails[index].imagePath,
-              id: categoriesDetails[index].id as int,
-              materials: categoriesDetails[index].material,
-            );
-          },
-        ),
+        children: List.generate(categoriesDetails.length, (index) {
+          return CustomCard(
+            title: categoriesDetails[index].name,
+            subTitle: categoriesDetails[index].subCategory,
+            price: categoriesDetails[index].price.toString(),
+            image: categoriesDetails[index].imagePath,
+            id: categoriesDetails[index].id as int,
+            materials: categoriesDetails[index].material,
+          );
+        }),
       ),
     );
   }

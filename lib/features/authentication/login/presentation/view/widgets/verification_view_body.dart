@@ -17,38 +17,23 @@ class VerificationViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 8,
-            ),
-            const Text(
-              'Verification',
-              style: Styles.heading2Bold,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 8),
+            const Text('Verification', style: Styles.heading2Bold),
+            const SizedBox(height: 16),
             Text(
               'Check your e-mail we have sent you \nthe 6 digit code at your e-mail',
               textAlign: TextAlign.center,
-              style: Styles.bodyText2Regular.copyWith(
-                color: kGreyColor,
-              ),
+              style: Styles.bodyText2Regular.copyWith(color: kGreyColor),
             ),
-            const SizedBox(
-              height: 32,
-            ),
+            const SizedBox(height: 32),
             const CustomPinput(),
-            const SizedBox(
-              height: 32,
-            ),
+            const SizedBox(height: 32),
             CustomButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   AppRouter.router(
-                    const RouteSettings(
-                      name: AppRouter.kNewPasswordView,
-                    ),
+                    const RouteSettings(name: AppRouter.kNewPasswordView),
                   ),
                 );
               },

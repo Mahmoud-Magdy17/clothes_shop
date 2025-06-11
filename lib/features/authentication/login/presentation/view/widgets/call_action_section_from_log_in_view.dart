@@ -7,10 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CallActionSectionFromLogInView extends StatelessWidget {
-  const CallActionSectionFromLogInView({
-    super.key,
-    required this.onPressed,
-  });
+  const CallActionSectionFromLogInView({super.key, required this.onPressed});
 
   final Function() onPressed;
 
@@ -18,59 +15,38 @@ class CallActionSectionFromLogInView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomButton(
-          onPressed: onPressed,
-          title: 'LOGIN',
-        ),
+        CustomButton(onPressed: onPressed, title: 'LOGIN'),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Not a member?',
-              style: Styles.bodyText1Regular.copyWith(
-                color: kGreyColor,
-              ),
+              style: Styles.bodyText1Regular.copyWith(color: kGreyColor),
             ),
             TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
                   AppRouter.router(
-                    const RouteSettings(
-                      name: AppRouter.kSignUpView,
-                    ),
+                    const RouteSettings(name: AppRouter.kSignUpView),
                   ),
                 );
               },
               style: const ButtonStyle(
                 foregroundColor: WidgetStatePropertyAll(kDarkGreyColor),
               ),
-              child: const Text(
-                'SIGN UP',
-                style: Styles.caption1Regular,
-              ),
+              child: const Text('SIGN UP', style: Styles.caption1Regular),
             ),
           ],
         ),
         const Row(
           children: [
             Expanded(
-              child: Divider(
-                indent: 30,
-                endIndent: 10,
-                color: kGreyColor,
-              ),
+              child: Divider(indent: 30, endIndent: 10, color: kGreyColor),
             ),
-            Text(
-              'Or',
-              style: Styles.subTitle1Bold,
-            ),
+            Text('Or', style: Styles.subTitle1Bold),
             Expanded(
-              child: Divider(
-                indent: 10,
-                endIndent: 30,
-                color: kGreyColor,
-              ),
+              child: Divider(indent: 10, endIndent: 30, color: kGreyColor),
             ),
           ],
         ),
@@ -92,9 +68,7 @@ class CallActionSectionFromLogInView extends StatelessWidget {
                     Assets.imagesGoogleIcon,
                     fit: BoxFit.scaleDown,
                   ),
-                  const SizedBox(
-                    width: 10,
-                  ),
+                  const SizedBox(width: 10),
                   const Text('Login with Google'),
                 ],
               ),

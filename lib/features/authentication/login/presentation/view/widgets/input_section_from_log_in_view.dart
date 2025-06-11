@@ -36,9 +36,7 @@ class InputSectionFromLogInView extends StatelessWidget {
           onSaved: onSavedToEmail,
           keyboardType: TextInputType.emailAddress,
         ),
-        const SizedBox(
-          height: 24,
-        ),
+        const SizedBox(height: 24),
         CustomPasswordInput(
           onSaved: onSavedToPassword,
           hintText: 'Enter your password',

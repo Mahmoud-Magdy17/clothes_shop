@@ -51,14 +51,15 @@ class CategoryDetailsModel {
 
   CategoryDetailsEntity toEntity() {
     return CategoryDetailsEntity(
-        id: id!,
-        name: name!,
-        price: price!,
-        imagePath: imagePath!,
-        description: description!,
-        material: material!,
-        subCategory: subCategory!,
-        categoryId: categoryId!,
-        category: category!);
+      id: id!,
+      name: name!,
+      price: price!,
+      imagePath: imagePath!,
+      description: description!,
+      material: material!,
+      subCategory: subCategory!,
+      categoryId: categoryId!,
+      category: category!,
+    );
   }
 }

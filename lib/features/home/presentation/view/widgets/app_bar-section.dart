@@ -1,13 +1,10 @@
-
 import 'package:clothes_shop_app/core/widgets/custom_love.dart';
 import 'package:clothes_shop_app/features/home/presentation/manage/cubits/product_cubit/product_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppBarSection extends StatelessWidget {
-  const AppBarSection({
-    super.key,
-  });
+  const AppBarSection({super.key});
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -19,16 +16,11 @@ class AppBarSection extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
-              Icons.arrow_back_ios_new_outlined,
-              size: 18,
-            ),
+            icon: const Icon(Icons.arrow_back_ios_new_outlined, size: 18),
           ),
           const Spacer(),
           IsFavoriteBuilder(),
-          const SizedBox(
-            width: 16,
-          ),
+          const SizedBox(width: 16),
         ],
       ),
     );
@@ -36,9 +28,7 @@ class AppBarSection extends StatelessWidget {
 }
 
 class IsFavoriteBuilder extends StatelessWidget {
-  const IsFavoriteBuilder({
-    super.key,
-  });
+  const IsFavoriteBuilder({super.key});
   @override
   Widget build(BuildContext context) {
     ProductCubit cubit = context.read<ProductCubit>();

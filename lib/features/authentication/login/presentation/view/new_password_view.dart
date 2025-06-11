@@ -12,9 +12,7 @@ class NewPasswordView extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(
-            Icons.arrow_back_ios,
-          ),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: const NewPasswordViewBody(),

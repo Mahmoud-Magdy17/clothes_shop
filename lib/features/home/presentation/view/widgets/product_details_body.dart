@@ -5,10 +5,7 @@ import 'app_bar-section.dart';
 import 'details_section.dart';
 
 class ProductDetailsBody extends StatelessWidget {
-  const ProductDetailsBody({
-    super.key,
-    required this.productDetails,
-  });
+  const ProductDetailsBody({super.key, required this.productDetails});
 
   final ProductEntity productDetails;
 
@@ -27,9 +24,7 @@ class ProductDetailsBody extends StatelessWidget {
                   width: double.infinity,
                 ),
               ),
-              DetailsSection(
-                productDetails: productDetails,
-              ),
+              DetailsSection(productDetails: productDetails),
             ],
           ),
           AppBarSection(),

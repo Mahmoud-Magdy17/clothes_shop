@@ -12,9 +12,7 @@ class LogInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(
-        authRepo: getIt.get<AuthRepo>(),
-      ),
+      create: (context) => LoginCubit(authRepo: getIt.get<AuthRepo>()),
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(

@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class TapsSection extends StatelessWidget {
-  const TapsSection({
-    super.key,
-  });
+  const TapsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +26,7 @@ class TapsSection extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          width: 8,
-        ),
+        const SizedBox(width: 8),
         Container(
           height: 30,
           width: 50,
@@ -46,9 +42,7 @@ class TapsSection extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          width: 8,
-        ),
+        const SizedBox(width: 8),
         Container(
           height: 30,
           width: 50,
@@ -73,12 +67,8 @@ class TapsSection extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: kLightGreyColor, width: 1),
           ),
-          child: Center(
-            child: SvgPicture.asset(
-              Assets.imagesFilterIcon,
-            ),
-          ),
-        )
+          child: Center(child: SvgPicture.asset(Assets.imagesFilterIcon)),
+        ),
       ],
     );
   }

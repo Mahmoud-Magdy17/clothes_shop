@@ -34,25 +34,14 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 8,
-              ),
-              const Text(
-                'Sign up',
-                style: Styles.heading2Bold,
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 8),
+              const Text('Sign up', style: Styles.heading2Bold),
+              const SizedBox(height: 16),
               Text(
                 'Create new account',
-                style: Styles.heading3Bold.copyWith(
-                  color: kDarkGreyColor,
-                ),
+                style: Styles.heading3Bold.copyWith(color: kDarkGreyColor),
               ),
-              const SizedBox(
-                height: 12,
-              ),
+              const SizedBox(height: 12),
               InputSectionFromSignUpView(
                 onSavedToEmail: (value) => email = value!,
                 onSavedToPassword: (value) => password = value!,
@@ -81,14 +70,14 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       return;
                     }
                     context.read<SignUpCubit>().signUp(
-                          email: email,
-                          password: password,
-                          confirmPassword: confirmPassword,
-                          name: name,
-                          phone: phone,
-                          location: location,
-                          gender: gender,
-                        );
+                      email: email,
+                      password: password,
+                      confirmPassword: confirmPassword,
+                      name: name,
+                      phone: phone,
+                      location: location,
+                      gender: gender,
+                    );
                     setState(() {});
                   } else {
                     autovalidateMode = AutovalidateMode.always;

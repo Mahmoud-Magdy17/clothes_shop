@@ -6,9 +6,7 @@ import 'package:clothes_shop_app/generated/assets.dart';
 import 'package:flutter/material.dart';
 
 class StartViewBody extends StatelessWidget {
-  const StartViewBody({
-    super.key,
-  });
+  const StartViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,54 +21,38 @@ class StartViewBody extends StatelessWidget {
             height: 130,
             fit: BoxFit.fill,
           ),
-          const SizedBox(
-            height: 12,
-          ),
-          const Text(
-            'Clothes Shop',
-            style: Styles.heading1Bold,
-          ),
+          const SizedBox(height: 12),
+          const Text('Clothes Shop', style: Styles.heading1Bold),
           Text(
             'All You Want',
-            style: Styles.caption2Regular.copyWith(
-              color: kDarkGreyColor,
-            ),
+            style: Styles.caption2Regular.copyWith(color: kDarkGreyColor),
           ),
-          const SizedBox(
-            height: 32,
-          ),
+          const SizedBox(height: 32),
           CustomButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  AppRouter.router(
-                    const RouteSettings(
-                      name: AppRouter.kSignUpView,
-                    ),
-                  ),
-                );
-              },
-              title: "Sign up"),
-          const SizedBox(
-            height: 16,
+            onPressed: () {
+              Navigator.push(
+                context,
+                AppRouter.router(
+                  const RouteSettings(name: AppRouter.kSignUpView),
+                ),
+              );
+            },
+            title: "Sign up",
           ),
+          const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "Already have an account? ",
-                style: Styles.bodyText1Regular.copyWith(
-                  color: kDarkGreyColor,
-                ),
+                style: Styles.bodyText1Regular.copyWith(color: kDarkGreyColor),
               ),
               TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     AppRouter.router(
-                      const RouteSettings(
-                        name: AppRouter.kLogInView,
-                      ),
+                      const RouteSettings(name: AppRouter.kLogInView),
                     ),
                   );
                 },

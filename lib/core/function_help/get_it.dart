@@ -12,24 +12,14 @@ import '../../features/home/data/repos_impl/home_repo_impl.dart';
 final getIt = GetIt.instance;
 
 void setupGetIt() {
-  getIt.registerSingleton<DioConsumer>(
-    DioConsumer(
-      dio: Dio(),
-    ),
-  );
+  getIt.registerSingleton<DioConsumer>(DioConsumer(dio: Dio()));
   getIt.registerSingleton<AuthRepo>(
-    AuthRepoImpl(
-      dioConsumer: getIt.get<DioConsumer>(),
-    ),
+    AuthRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
   );
   getIt.registerSingleton<HomeRepo>(
-    HomeRepoImpl(
-      dioConsumer: getIt.get<DioConsumer>(),
-    ),
+    HomeRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
   );
   getIt.registerSingleton<ProfileRepo>(
-    ProfileRepoImpl(
-      dioConsumer: getIt.get<DioConsumer>(),
-    ),
+    ProfileRepoImpl(dioConsumer: getIt.get<DioConsumer>()),
   );
 }

@@ -32,9 +32,7 @@ final class IsFavoriteSuccess extends ProductState {
 final class IsFavoriteFailure extends ProductState {
   final String message;
 
-  IsFavoriteFailure({
-    required this.message,
-  });
+  IsFavoriteFailure({required this.message});
 }
 
 final class SetFavoriteLoading extends ProductState {}
@@ -42,15 +40,11 @@ final class SetFavoriteLoading extends ProductState {}
 final class SetFavoriteSuccess extends ProductState {
   final bool favorite;
 
-  SetFavoriteSuccess({
-    required this.favorite,
-  });
+  SetFavoriteSuccess({required this.favorite});
 }
 
 final class SetFavoriteFailure extends ProductState {
   final String message;
 
-  SetFavoriteFailure({
-    required this.message,
-  });
+  SetFavoriteFailure({required this.message});
 }

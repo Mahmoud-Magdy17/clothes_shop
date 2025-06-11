@@ -23,9 +23,7 @@ class EditProfileView extends StatelessWidget {
               title: 'Cancel',
               child: const SizedBox(),
             ),
-            const SizedBox(
-              width: 16,
-            ),
+            const SizedBox(width: 16),
             SecondCustomButton(
               isMinWidth: true,
               onPressed: () {},
@@ -42,41 +40,31 @@ class EditProfileView extends StatelessWidget {
           child: Column(
             children: [
               AccountSectionFromAccountDetails(),
-              SizedBox(
-                height: 32,
-              ),
+              SizedBox(height: 32),
               CustomItemFromEditAndAccountDetails(
                 title: 'User Name',
                 value: 'Mohamed Attalla',
                 isEdit: true,
               ),
-              SizedBox(
-                height: 32,
-              ),
+              SizedBox(height: 32),
               CustomItemFromEditAndAccountDetails(
                 title: 'Email',
                 value: 'Mexoattlla123@gmail.com',
                 isEdit: true,
               ),
-              SizedBox(
-                height: 32,
-              ),
+              SizedBox(height: 32),
               CustomItemFromEditAndAccountDetails(
                 title: 'Phone Number',
                 value: '01000000000',
                 isEdit: true,
               ),
-              SizedBox(
-                height: 32,
-              ),
+              SizedBox(height: 32),
               CustomItemFromEditAndAccountDetails(
                 title: 'Gender',
                 value: 'Male',
                 isEdit: true,
               ),
-              SizedBox(
-                height: 32,
-              ),
+              SizedBox(height: 32),
               CustomItemFromEditAndAccountDetails(
                 title: 'Location',
                 value: 'Shoag "العاصمة"',

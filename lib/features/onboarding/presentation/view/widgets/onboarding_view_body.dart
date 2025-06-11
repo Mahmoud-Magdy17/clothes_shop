@@ -32,12 +32,8 @@ class OnboardingViewBody extends StatelessWidget {
           onPressedToSkip: onPressedToSkip,
           image: image,
         ),
-        const SizedBox(
-          height: 24,
-        ),
-        OnboardingContentSection(
-          title: title,
-        ),
+        const SizedBox(height: 24),
+        OnboardingContentSection(title: title),
       ],
     );
   }

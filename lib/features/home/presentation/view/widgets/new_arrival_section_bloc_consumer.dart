@@ -6,9 +6,7 @@ import '../../manage/cubits/product_cubit/product_cubit.dart';
 import 'new_arrival_section.dart';
 
 class NewArrivalSectionBlocConsumer extends StatelessWidget {
-  const NewArrivalSectionBlocConsumer({
-    super.key,
-  });
+  const NewArrivalSectionBlocConsumer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +16,11 @@ class NewArrivalSectionBlocConsumer extends StatelessWidget {
           return NewArrivalSection(products: state.productsList);
         } else if (state is ProductFailure) {
           return const Center(
-            child: Text(
-              "Oops something went wrong, please try later",
-            ),
+            child: Text("Oops something went wrong, please try later"),
           );
         } else {
           return Skeletonizer(
-            child: NewArrivalSection(
-              products: getDummyProducts(),
-            ),
+            child: NewArrivalSection(products: getDummyProducts()),
           );
         }
       },

@@ -24,12 +24,8 @@ class ProductDetailsView extends StatelessWidget {
       ),
       child: Scaffold(
         body: BlocProvider(
-          create: (context) => ProductCubit(
-            getIt.get<HomeRepo>(),
-          ),
-          child: ProductDetailsBodyBlocBuilder(
-            id: id,
-          ),
+          create: (context) => ProductCubit(getIt.get<HomeRepo>()),
+          child: ProductDetailsBodyBlocBuilder(id: id),
         ),
       ),
     );
@@ -37,10 +33,7 @@ class ProductDetailsView extends StatelessWidget {
 }
 
 class ProductDetailsBodyBlocBuilder extends StatefulWidget {
-  const ProductDetailsBodyBlocBuilder({
-    super.key,
-    required this.id,
-  });
+  const ProductDetailsBodyBlocBuilder({super.key, required this.id});
 
   final int id;
 
@@ -68,21 +61,15 @@ class _ProductDetailsBodyBlocBuilderState
         log(state.toString());
         if (state is ProductLoading) {
           return Skeletonizer(
-            child: ProductDetailsBody(
-              productDetails: getDummyProduct(),
-            ),
+            child: ProductDetailsBody(productDetails: getDummyProduct()),
           );
         }
         if (state is ProductFailure) {
           return const Center(
-            child: Text(
-              "Oops something went wrong, please try later",
-            ),
+            child: Text("Oops something went wrong, please try later"),
           );
         } else {
-          return ProductDetailsBody(
-            productDetails: cubit.prodcutDetails!,
-          );
+          return ProductDetailsBody(productDetails: cubit.prodcutDetails!);
         }
       },
     );

@@ -13,9 +13,7 @@ class CustomProgressIndicators extends StatelessWidget {
       height: 6,
       decoration: BoxDecoration(
         color: isActive ? kFontColor : kLightGreyColor,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(10),
-        ),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       duration: const Duration(milliseconds: 300),
     );

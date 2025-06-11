@@ -16,37 +16,24 @@ class AccountDetailsView extends StatelessWidget {
         child: Column(
           children: [
             AccountSectionFromAccountDetails(),
-            SizedBox(
-              height: 32,
-            ),
+            SizedBox(height: 32),
             CustomItemFromEditAndAccountDetails(
               title: 'User Name',
               value: 'Mohamed Attalla',
             ),
-            SizedBox(
-              height: 32,
-            ),
+            SizedBox(height: 32),
             CustomItemFromEditAndAccountDetails(
               title: 'Email',
               value: 'Mexoattlla123@gmail.com',
             ),
-            SizedBox(
-              height: 32,
-            ),
+            SizedBox(height: 32),
             CustomItemFromEditAndAccountDetails(
               title: 'Phone Number',
               value: '01000000000',
             ),
-            SizedBox(
-              height: 32,
-            ),
-            CustomItemFromEditAndAccountDetails(
-              title: 'Gender',
-              value: 'Male',
-            ),
-            SizedBox(
-              height: 32,
-            ),
+            SizedBox(height: 32),
+            CustomItemFromEditAndAccountDetails(title: 'Gender', value: 'Male'),
+            SizedBox(height: 32),
             CustomItemFromEditAndAccountDetails(
               title: 'Location',
               value: 'Shoag "العاصمة"',

@@ -4,9 +4,7 @@ import 'package:clothes_shop_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class ForgotSectionFromLogInView extends StatelessWidget {
-  const ForgotSectionFromLogInView({
-    super.key,
-  });
+  const ForgotSectionFromLogInView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +16,13 @@ class ForgotSectionFromLogInView extends StatelessWidget {
             Navigator.push(
               context,
               AppRouter.router(
-                const RouteSettings(
-                  name: AppRouter.kForgotPasswordView,
-                ),
+                const RouteSettings(name: AppRouter.kForgotPasswordView),
               ),
             );
           },
           child: Text(
             'Forgot password?',
-            style: Styles.bodyText1Regular.copyWith(
-              color: kGreyColor,
-            ),
+            style: Styles.bodyText1Regular.copyWith(color: kGreyColor),
           ),
         ),
       ],

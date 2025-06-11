@@ -26,15 +26,13 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<CategoryEntity>>> fetchGetAllCategories() async {
     try {
-      var response = await dioConsumer
-          .get("${EndPoint.baseUrl}Category/GetAllCategory") as List<dynamic>;
+      var response =
+          await dioConsumer.get("${EndPoint.baseUrl}Category/GetAllCategory")
+              as List<dynamic>;
 
       List<CategoryEntity> category;
-      category = response
-          .map(
-            (e) => CategoryModel.fromJson(e).toEntity(),
-          )
-          .toList();
+      category =
+          response.map((e) => CategoryModel.fromJson(e).toEntity()).toList();
       return Right(category);
     } on CustomException catch (e) {
       return Left(ServerFailure(e.toString()));
@@ -46,16 +44,17 @@ class HomeRepoImpl implements HomeRepo {
 
   @override
   Future<Either<Failure, List<CategoryDetailsEntity>>> fetchGetCategoryDetails(
-      int id) async {
+    int id,
+  ) async {
     try {
-      var response = await dioConsumer.get("${EndPoint.baseUrl}Category/$id")
-          as List<dynamic>;
+      var response =
+          await dioConsumer.get("${EndPoint.baseUrl}Category/$id")
+              as List<dynamic>;
       List<CategoryDetailsEntity> categoryDetails;
-      categoryDetails = response
-          .map(
-            (e) => CategoryDetailsModel.fromJson(e).toEntity(),
-          )
-          .toList();
+      categoryDetails =
+          response
+              .map((e) => CategoryDetailsModel.fromJson(e).toEntity())
+              .toList();
       return Right(categoryDetails);
     } on CustomException catch (e) {
       return Left(ServerFailure(e.toString()));
@@ -68,15 +67,12 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<OfferEntity>>> fetchGetAllOver() async {
     try {
-      var response = await dioConsumer.get("${EndPoint.baseUrl}Offers/GetAll")
-          as List<dynamic>;
+      var response =
+          await dioConsumer.get("${EndPoint.baseUrl}Offers/GetAll")
+              as List<dynamic>;
 
       List<OfferEntity> offers;
-      offers = response
-          .map(
-            (e) => OfferModel.fromJson(e).toEntity(),
-          )
-          .toList();
+      offers = response.map((e) => OfferModel.fromJson(e).toEntity()).toList();
       return Right(offers);
     } on CustomException catch (e) {
       return Left(ServerFailure(e.toString()));
@@ -89,14 +85,12 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<ProductEntity>>> fetchGetAllProducts() async {
     try {
-      var response = await dioConsumer
-          .get("${EndPoint.baseUrl}Product/GetAllProducts") as List<dynamic>;
+      var response =
+          await dioConsumer.get("${EndPoint.baseUrl}Product/GetAllProducts")
+              as List<dynamic>;
       List<ProductEntity> products;
-      products = response
-          .map(
-            (e) => ProductModel.fromJson(e).toEntity(),
-          )
-          .toList();
+      products =
+          response.map((e) => ProductModel.fromJson(e).toEntity()).toList();
       return Right(products);
     } on CustomException catch (e) {
       return Left(ServerFailure(e.toString()));
@@ -109,8 +103,9 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, ProductEntity>> fetchGetProductDetails(int id) async {
     try {
-      var response = await dioConsumer.get("${EndPoint.baseUrl}Product/$id")
-          as Map<String, dynamic>;
+      var response =
+          await dioConsumer.get("${EndPoint.baseUrl}Product/$id")
+              as Map<String, dynamic>;
       ProductEntity productDetails;
       productDetails = ProductModel.fromJson(response).toEntity();
       return Right(productDetails);
@@ -123,15 +118,17 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Favorite, Failure>> isFavorite({
-    required int productId,
-  }) async {
+  Future<Either<Favorite, Failure>> isFavorite({required int productId}) async {
     try {
-      Response response = await Dio()
-          .post("${EndPoint.baseUrl}Favorite/IsFavorite?productId=$productId",
-              options: Options(headers: {
-                "Authorization": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImEzMzUzZjk4LTdiNWEtNGIzYi05ZmMxLTc1YjViODVkOWM0MiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Ik1haG1vdWQgTWFnZHkiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJNYWhtb3VkTWFnZHkxNzYyMDNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3NzU1MTQzODUsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcxMDgiLCJhdWQiOiJTZWNydXJlIn0.Q3xgcbtXwLcvQ2boEvPX79tC3hPMdmSe2mhZtodGBVU",
-              }));
+      Response response = await Dio().post(
+        "${EndPoint.baseUrl}Favorite/IsFavorite?productId=$productId",
+        options: Options(
+          headers: {
+            "Authorization":
+                "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImEzMzUzZjk4LTdiNWEtNGIzYi05ZmMxLTc1YjViODVkOWM0MiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Ik1haG1vdWQgTWFnZHkiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJNYWhtb3VkTWFnZHkxNzYyMDNAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3NzU1MTQzODUsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcxMDgiLCJhdWQiOiJTZWNydXJlIn0.Q3xgcbtXwLcvQ2boEvPX79tC3hPMdmSe2mhZtodGBVU",
+          },
+        ),
+      );
       // var response = await dioConsumer
       //     .post("${EndPoint.baseUrl}Favorite/IsFavorite", body: {
       //   'productId': productId,
@@ -154,9 +151,10 @@ class HomeRepoImpl implements HomeRepo {
     try {
       final String url = '${EndPoint.baseUrl}Favorite/$productId';
 
-      final response = isFavorite
-          ? await dioConsumer.delete(url)
-          : await dioConsumer.post(url);
+      final response =
+          isFavorite
+              ? await dioConsumer.delete(url)
+              : await dioConsumer.post(url);
 
       log(response.toString());
 

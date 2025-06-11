@@ -1,13 +1,7 @@
 import '../../domain/entities/profile_entity.dart';
 
 class ProfileModel {
-  ProfileModel({
-    this.name,
-    this.email,
-    this.phone,
-    this.location,
-    this.gender,
-  });
+  ProfileModel({this.name, this.email, this.phone, this.location, this.gender});
 
   ProfileModel.fromJson(dynamic json) {
     name = json['name'];
@@ -34,10 +28,10 @@ class ProfileModel {
   }
 
   ProfileEntity toEntity() => ProfileEntity(
-        name: name!,
-        email: email!,
-        phone: phone!,
-        location: location!,
-        gender: gender!,
-      );
+    name: name!,
+    email: email!,
+    phone: phone!,
+    location: location!,
+    gender: gender!,
+  );
 }

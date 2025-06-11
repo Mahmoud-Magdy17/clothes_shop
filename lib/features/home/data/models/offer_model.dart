@@ -1,10 +1,7 @@
 import 'package:clothes_shop_app/features/home/domain/entities/offer_entity.dart';
 
 class OfferModel {
-  OfferModel({
-    this.id,
-    this.image,
-  });
+  OfferModel({this.id, this.image});
 
   OfferModel.fromJson(dynamic json) {
     id = json['id'];
