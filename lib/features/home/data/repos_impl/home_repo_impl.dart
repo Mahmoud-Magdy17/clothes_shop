@@ -164,4 +164,23 @@ class HomeRepoImpl implements HomeRepo {
       return Right(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> addProductToCard({
+    required int productId,
+    required int quatity,
+    required int size,
+  }) async {
+    try {
+      var response = await dioConsumer.post(
+        "${EndPoint.baseUrl}Cart/add",
+        body: {"productId": productId, "quantity": quatity, "Size": size},
+      );
+      log(response.toString());
+      return Right(null);
+    } catch (e) {
+      logger.e("Exception in  categoryHomeRepoImpl :$e");
+      return Left(ServerFailure(e.toString()));
+    }
+  }
 }

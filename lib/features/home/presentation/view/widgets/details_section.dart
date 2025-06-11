@@ -5,7 +5,10 @@ import 'package:clothes_shop_app/core/widgets/custom_counter.dart';
 import 'package:clothes_shop_app/core/widgets/custom_list_of_color.dart';
 import 'package:clothes_shop_app/core/widgets/custom_size.dart';
 import 'package:clothes_shop_app/features/home/domain/entities/product_entity.dart';
+import 'package:clothes_shop_app/features/home/presentation/manage/cubits/product_cubit/product_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class DetailsSection extends StatelessWidget {
   const DetailsSection({super.key, required this.productDetails});
@@ -14,6 +17,8 @@ class DetailsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ProductCubit cubit = context.read<ProductCubit>();
+
     return Positioned(
       bottom: 0,
       child: Container(
@@ -53,7 +58,19 @@ class DetailsSection extends StatelessWidget {
                     ),
                   ],
                 ),
-                const CustomCounter(),
+                CustomCounter(
+                  decrement: () {
+                    if (cubit.quantity > 0) {
+                      cubit.quantity--;
+                    }
+                  },
+                  increment: () {
+                    if (cubit.quantity < 10) {
+                      cubit.quantity++;
+                    }
+                  },
+                  quantity: cubit.quantity,
+                ),
               ],
             ),
             const SizedBox(height: 16),
@@ -101,11 +118,51 @@ class DetailsSection extends StatelessWidget {
                     ),
                   ],
                 ),
-                SecondCustomButton(
-                  isMinWidth: true,
-                  onPressed: () {},
-                  title: 'Add To Cart',
-                  child: const Icon(Icons.shopping_cart, color: Colors.white),
+                BlocConsumer<ProductCubit, ProductState>(
+                  listener: (BuildContext context, ProductState state) {
+                    if (state is AddProductToCardSuccess) {
+                      Navigator.pop(context);
+                      Fluttertoast.showToast(
+                        msg: "Item added to cart successfully",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: kFontColor,
+                        textColor: Colors.white,
+                        fontSize: 16.0,
+                      );
+                    }
+                  },
+                  builder: (context, state) {
+                    if (state is AddProductToCardLoading) {
+                      return AbsorbPointer(
+                        child: SecondCustomButton(
+                          isMinWidth: true,
+                          onPressed: () {},
+                          title: 'Adding',
+                          child: const CircularProgressIndicator(
+                            color: (Colors.white),
+                          ),
+                        ),
+                      );
+                    } else {
+                      return SecondCustomButton(
+                        isMinWidth: true,
+                        onPressed: () {
+                          context.read<ProductCubit>().addProductToCard(
+                            productId: productDetails.id.toInt(),
+                            quatity: context.read<ProductCubit>().quantity,
+                            size: 2,
+                          );
+                        },
+                        title: 'Add To Cart',
+                        child: const Icon(
+                          Icons.shopping_cart,
+                          color: Colors.white,
+                        ),
+                      );
+                    }
+                  },
                 ),
               ],
             ),

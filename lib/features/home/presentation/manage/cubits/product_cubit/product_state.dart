@@ -48,3 +48,13 @@ final class SetFavoriteFailure extends ProductState {
 
   SetFavoriteFailure({required this.message});
 }
+
+final class AddProductToCardLoading extends ProductState {}
+
+final class AddProductToCardFailture extends ProductState {
+  final String message;
+
+  AddProductToCardFailture({required this.message});
+}
+
+final class AddProductToCardSuccess extends ProductState {}

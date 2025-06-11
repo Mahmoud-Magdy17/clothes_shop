@@ -1,18 +1,24 @@
 import 'package:clothes_shop_app/constants.dart';
+import 'package:clothes_shop_app/features/home/presentation/manage/cubits/product_cubit/product_cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/styles.dart';
 
 class CustomCounter extends StatefulWidget {
-  const CustomCounter({super.key});
-
+  const CustomCounter({
+    super.key,
+    required this.increment,
+    required this.decrement,
+    required this.quantity,
+  });
+  final Function() increment;
+  final Function() decrement;
+  final int quantity;
   @override
   State<CustomCounter> createState() => _ProductCustomQuantityState();
 }
 
 class _ProductCustomQuantityState extends State<CustomCounter> {
-  int quantity = 1;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,30 +32,25 @@ class _ProductCustomQuantityState extends State<CustomCounter> {
         children: [
           IconButton(
             onPressed: () {
-              if (quantity > 0) {
-                setState(() {
-                  quantity--;
-                });
-              }
+              setState(() {});
             },
             icon: const Icon(Icons.remove, size: 16),
-            color: quantity == 0 ? kGreyColor : kBlackColor,
+            color: widget.quantity == 0 ? kGreyColor : kBlackColor,
           ),
           Expanded(
             child: Center(
-              child: Text(quantity.toString(), style: Styles.bodyText1Regular),
+              child: Text(
+                widget.quantity.toString(),
+                style: Styles.bodyText1Regular,
+              ),
             ),
           ),
           IconButton(
             onPressed: () {
-              if (quantity < 10) {
-                setState(() {
-                  quantity++;
-                });
-              }
+              setState(() {});
             },
             icon: const Icon(Icons.add, size: 16),
-            color: quantity == 10 ? kGreyColor : kBlackColor,
+            color: widget.quantity == 10 ? kGreyColor : kBlackColor,
           ),
         ],
       ),

@@ -9,7 +9,7 @@ part 'product_state.dart';
 
 class ProductCubit extends Cubit<ProductState> {
   ProductCubit(this.homeRepo) : super(ProductInitial());
-
+  int quantity = 0;
   final HomeRepo homeRepo;
   List<ProductEntity>? prodcuts;
   ProductEntity? prodcutDetails;
@@ -72,6 +72,29 @@ class ProductCubit extends Cubit<ProductState> {
       (failure) {
         emit(SetFavoriteFailure(message: failure.message));
         log('set fail');
+      },
+    );
+  }
+
+  Future<void> addProductToCard({
+    required int productId,
+    required int quatity,
+    required int size,
+  }) async {
+    emit(AddProductToCardLoading());
+    var result = await homeRepo.addProductToCard(
+      productId: productId,
+      quatity: quatity,
+      size: size,
+    );
+    result.fold(
+      (error) {
+        log("error");
+        emit(AddProductToCardFailture(message: error.message));
+      },
+      (success) {
+        log("success");
+        emit(AddProductToCardSuccess());
       },
     );
   }

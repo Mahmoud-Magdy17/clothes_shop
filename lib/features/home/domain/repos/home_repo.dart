@@ -8,6 +8,11 @@ import '../entities/category_entity.dart';
 import '../entities/offer_entity.dart';
 
 abstract class HomeRepo {
+    Future<Either<Failure, void>> addProductToCard({
+    required int productId,
+    required int quatity,
+    required int size,
+  });
   Future<Either<Failure, List<ProductEntity>>> fetchGetAllProducts();
 
   Future<Either<Failure, ProductEntity>> fetchGetProductDetails(int id);

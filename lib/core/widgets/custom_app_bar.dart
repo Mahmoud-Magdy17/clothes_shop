@@ -6,6 +6,7 @@ AppBar customAppbar(
   BuildContext context, {
   required String title,
   List<Widget>? actions,
+  bool? noBack,
 }) {
   return AppBar(
     backgroundColor: Colors.transparent,
@@ -13,7 +14,10 @@ AppBar customAppbar(
       onPressed: () {
         Navigator.pop(context);
       },
-      icon: const Icon(Icons.arrow_back_ios_new_outlined, size: 18),
+      icon:
+          noBack == null
+              ? const Icon(Icons.arrow_back_ios_new_outlined, size: 18)
+              : SizedBox(),
     ),
     title: Text(title, style: Styles.subTitle1Bold),
     actions: actions,
