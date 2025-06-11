@@ -1,5 +1,4 @@
 import 'package:clothes_shop_app/constants.dart';
-import 'package:clothes_shop_app/features/home/presentation/manage/cubits/product_cubit/product_cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/styles.dart';
@@ -31,9 +30,7 @@ class _ProductCustomQuantityState extends State<CustomCounter> {
       child: Row(
         children: [
           IconButton(
-            onPressed: () {
-              setState(() {});
-            },
+            onPressed: widget.decrement,
             icon: const Icon(Icons.remove, size: 16),
             color: widget.quantity == 0 ? kGreyColor : kBlackColor,
           ),
@@ -46,9 +43,7 @@ class _ProductCustomQuantityState extends State<CustomCounter> {
             ),
           ),
           IconButton(
-            onPressed: () {
-              setState(() {});
-            },
+            onPressed: widget.increment,
             icon: const Icon(Icons.add, size: 16),
             color: widget.quantity == 10 ? kGreyColor : kBlackColor,
           ),

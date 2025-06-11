@@ -1,4 +1,3 @@
-
 import 'package:clothes_shop_app/constants.dart';
 import 'package:clothes_shop_app/core/api/dio_consumer.dart';
 import 'package:clothes_shop_app/core/api/end_point.dart';
@@ -13,8 +12,17 @@ class CartRepoImpl implements CardRepo {
   CartRepoImpl({required this.dioConsumer});
 
   @override
-  Future<Either<Failure, int>> decrement({required int productId}) {
-    throw UnimplementedError();
+  Future<Either<Failure, int>> decrement({required int productId}) async {
+    try {
+      var response = await dioConsumer.post(
+        "${EndPoint.baseUrl}Cart/decrement/$productId",
+      );
+
+      return Right(response["quantity"]);
+    } catch (e) {
+      logger.e("Exception in  categoryHomeRepoImpl :$e");
+      return Left(ServerFailure(e.toString()));
+    }
   }
 
   @override
@@ -35,8 +43,16 @@ class CartRepoImpl implements CardRepo {
   }
 
   @override
-  Future<Either<Failure, int>> increment({required int productId}) {
-    // TODO: implement increment
-    throw UnimplementedError();
+  Future<Either<Failure, int>> increment({required int productId}) async {
+    try {
+      var response = await dioConsumer.post(
+        "${EndPoint.baseUrl}Cart/increment/$productId",
+      );
+
+      return Right(response["quantity"]);
+    } catch (e) {
+      logger.e("Exception in  categoryHomeRepoImpl :$e");
+      return Left(ServerFailure(e.toString()));
+    }
   }
 }

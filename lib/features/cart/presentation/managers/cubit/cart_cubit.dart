@@ -22,4 +22,14 @@ class CartCubit extends Cubit<CartState> {
       },
     );
   }
+
+  Future<void> increment({required int productId}) async {
+    var result = await repoImpl.increment(productId: productId);
+    result.fold((fail) {}, (newQuantity) {});
+  }
+
+  Future<void> decrement({required int productId}) async {
+    var result = await repoImpl.decrement(productId: productId);
+    result.fold((fail) {}, (newQuantity) {});
+  }
 }
