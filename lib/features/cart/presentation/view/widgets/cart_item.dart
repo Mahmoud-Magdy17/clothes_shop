@@ -91,16 +91,14 @@ class _CartItemState extends State<CartItem> {
                     ),
                     const SizedBox(height: 8),
                     Row(
-                      // mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '\$ ${cartItem.totalPriceForProduct}',
+                          '\$ ${(cartItem.price! * cartItem.quantity!)}',
                           style: Styles.subTitle2Bold.copyWith(
                             color: kDarkGreyColor,
                           ),
                         ),
-                        // const SizedBox(width: 48),
                         BlocBuilder<CartCubit, CartState>(
                           builder: (context, state) {
                             return CustomCounter(

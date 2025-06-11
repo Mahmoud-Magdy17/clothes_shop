@@ -10,11 +10,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class DetailsSection extends StatelessWidget {
+class DetailsSection extends StatefulWidget {
   const DetailsSection({super.key, required this.productDetails});
 
   final ProductEntity productDetails;
 
+  @override
+  State<DetailsSection> createState() => _DetailsSectionState();
+}
+
+class _DetailsSectionState extends State<DetailsSection> {
   @override
   Widget build(BuildContext context) {
     ProductCubit cubit = context.read<ProductCubit>();
@@ -47,26 +52,28 @@ class DetailsSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      productDetails.name,
+                      widget.productDetails.name,
                       style: Styles.subTitle1Bold.copyWith(
                         color: kDarkGreyColor,
                       ),
                     ),
                     Text(
-                      productDetails.material,
+                      widget.productDetails.material,
                       style: Styles.caption1Regular.copyWith(color: kGreyColor),
                     ),
                   ],
                 ),
                 CustomCounter(
                   decrement: () {
-                    if (cubit.quantity > 0) {
+                    if (cubit.quantity > 1) {
                       cubit.quantity--;
+                      setState(() {});
                     }
                   },
                   increment: () {
                     if (cubit.quantity < 10) {
                       cubit.quantity++;
+                      setState(() {});
                     }
                   },
                   quantity: cubit.quantity,
@@ -91,11 +98,11 @@ class DetailsSection extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              productDetails.description,
+              widget.productDetails.description,
               style: Styles.subTitle1Bold.copyWith(color: kDarkGreyColor),
             ),
             Text(
-              productDetails.description,
+              widget.productDetails.description,
               style: Styles.textButton.copyWith(color: kGreyColor),
             ),
             const SizedBox(height: 16),
@@ -111,7 +118,7 @@ class DetailsSection extends StatelessWidget {
                       style: Styles.caption2Regular.copyWith(color: kGreyColor),
                     ),
                     Text(
-                      productDetails.price.toString(),
+                      widget.productDetails.price.toString(),
                       style: Styles.subTitle2Bold.copyWith(
                         color: kDarkGreyColor,
                       ),
@@ -150,7 +157,7 @@ class DetailsSection extends StatelessWidget {
                         isMinWidth: true,
                         onPressed: () {
                           context.read<ProductCubit>().addProductToCard(
-                            productId: productDetails.id.toInt(),
+                            productId: widget.productDetails.id.toInt(),
                             quatity: context.read<ProductCubit>().quantity,
                             size: 2,
                           );

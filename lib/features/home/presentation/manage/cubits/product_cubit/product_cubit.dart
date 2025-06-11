@@ -9,7 +9,7 @@ part 'product_state.dart';
 
 class ProductCubit extends Cubit<ProductState> {
   ProductCubit(this.homeRepo) : super(ProductInitial());
-  int quantity = 0;
+  int quantity = 1;
   final HomeRepo homeRepo;
   List<ProductEntity>? prodcuts;
   ProductEntity? prodcutDetails;
