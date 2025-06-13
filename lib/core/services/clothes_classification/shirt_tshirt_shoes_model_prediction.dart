@@ -10,7 +10,7 @@ class ShirtTshirtShoesModelPrediction extends BaseClothesPrediction {
       modelPath: 'assets/ai_models/model_STSH.tflite',
       imageUint8: imageUint8,
       inputSize: 224,
-      labels: ["Sharts", "Shirt", "Shoes"],
+      labels: ["Sharts", "sh", "Shoes"],
     );
   }
 }

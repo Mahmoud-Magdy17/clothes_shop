@@ -73,7 +73,7 @@ class ImageSearchView extends StatelessWidget {
                     const SizedBox(height: 16),
 
                     Text(
-                      "Prediction: $prediction",
+                      "Prediction: ${prediction == 'sh' ? "Shirt" : prediction}",
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,

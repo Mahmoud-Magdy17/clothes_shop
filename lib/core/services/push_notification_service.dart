@@ -13,6 +13,7 @@ class PushNotificationService {
     log(token ?? "no token");
     FirebaseMessaging.onBackgroundMessage(onBackgroundMessagingHandler);
     handleForegroundMessage();
+    messaging.subscribeToTopic("all");
   }
 
   static void handleForegroundMessage() {
